@@ -28,15 +28,23 @@ CMakeFiles/AssociationManager.dir/src/cEntityController.cpp.o: ../src/cEntityCon
 CMakeFiles/AssociationManager.dir/src/cEntityController.cpp.o: ../src/cEntityController.h
 CMakeFiles/AssociationManager.dir/src/cEntityController.cpp.o: ../src/cStorage.h
 
+CMakeFiles/AssociationManager.dir/src/cHelperFunctions.cpp.o: ../common/constants.h
+CMakeFiles/AssociationManager.dir/src/cHelperFunctions.cpp.o: ../src/Logger.h
+CMakeFiles/AssociationManager.dir/src/cHelperFunctions.cpp.o: ../src/cHelperFunctions.cpp
+CMakeFiles/AssociationManager.dir/src/cHelperFunctions.cpp.o: ../src/cHelperFunctions.h
+
 CMakeFiles/AssociationManager.dir/src/cMsgValidator.cpp.o: ../common/commonTypes.h
 CMakeFiles/AssociationManager.dir/src/cMsgValidator.cpp.o: ../common/constants.h
 CMakeFiles/AssociationManager.dir/src/cMsgValidator.cpp.o: ../src/Logger.h
+CMakeFiles/AssociationManager.dir/src/cMsgValidator.cpp.o: ../src/cHelperFunctions.h
 CMakeFiles/AssociationManager.dir/src/cMsgValidator.cpp.o: ../src/cMsgValidator.cpp
 CMakeFiles/AssociationManager.dir/src/cMsgValidator.cpp.o: ../src/cMsgValidator.h
 
 CMakeFiles/AssociationManager.dir/src/cStorage.cpp.o: ../common/commonTypes.h
+CMakeFiles/AssociationManager.dir/src/cStorage.cpp.o: ../common/constants.h
 CMakeFiles/AssociationManager.dir/src/cStorage.cpp.o: ../src/Logger.h
 CMakeFiles/AssociationManager.dir/src/cStorage.cpp.o: ../src/cEntity.h
+CMakeFiles/AssociationManager.dir/src/cStorage.cpp.o: ../src/cHelperFunctions.h
 CMakeFiles/AssociationManager.dir/src/cStorage.cpp.o: ../src/cStorage.cpp
 CMakeFiles/AssociationManager.dir/src/cStorage.cpp.o: ../src/cStorage.h
 

@@ -12,9 +12,6 @@
 
 class Logger {
 private:
-
-    // TODO: separate isLoggerEnabled_ to 2 log levels
-
     const bool isLoggerEnabled_;
     const std::string separator_ = ": ";
     const std::string error_ = "ERROR:\t";

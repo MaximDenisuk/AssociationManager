@@ -15,8 +15,9 @@
 
 cEntityController::cEntityController(Logger &_logger):
         logger_(_logger),
-        storage_(logger_) {
+        storage_(logger_, *this) {
     logger_.print("cEntityController ctor");
+    storage_.requestLoadFullData();
 }
 
 void cEntityController::createEntity(const std::vector<std::string> &_msgData) {
@@ -32,7 +33,7 @@ void cEntityController::createEntity(const std::vector<std::string> &_msgData) {
             if (pFoundEntity == entitiesList_.end()) {
                 cEntity entity(shortName, longName);
                 entitiesList_.push_back(entity);
-                storage_.saveData(entitiesList_);
+                storage_.requestSaveFullData(entitiesList_);
             } else {
                 tmpEntityAlreadyExists(shortName);
             }
@@ -46,7 +47,7 @@ void cEntityController::createEntity(const std::vector<std::string> &_msgData) {
 }
 void cEntityController::makeEnttityAssociation(const std::vector<std::string> &_msgData) {
     logger_.print(__FUNCTION__);
-    if (!_msgData.empty() && constants::MAKE_ASSOCIATION_MAX_PARAMS_COUNT  == _msgData.size()){
+    if (!_msgData.empty() && constants::MAKE_ASSOCIATION_MAX_PARAMS_COUNT  == _msgData.size()) {
         auto pFoundEntity = std::find_if(entitiesList_.begin(), entitiesList_.end(), [=] (cEntity _entity) {
                 return _entity.getShortName_().compare(_msgData[0]) == 0;
             });
@@ -56,14 +57,14 @@ void cEntityController::makeEnttityAssociation(const std::vector<std::string> &_
             });
             if (kPAssociationTargetEntity != entitiesList_.end()) {
                 pFoundEntity->addAssociation(_msgData[1], _msgData[2]);
-                storage_.saveData(entitiesList_);
+                storage_.requestSaveFullData(entitiesList_);
                 logger_.print(__FUNCTION__, "Association added");
             } else {
 //                viewer_.viewEntityInfo(dataToShow);
                 tmpEntityNotFoundError(_msgData[2]);
             }
         } else {
-            logger_.print(__FUNCTION__, "Entity with this name not found, create it at first, name: ", _msgData[0].c_str());
+            tmpEntityNotFoundError(_msgData[0].c_str());
         }
     } else {
         logger_.printError(__FUNCTION__, "Wrong incomming data. It is empty or wrong size");

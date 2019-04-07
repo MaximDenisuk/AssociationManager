@@ -28,16 +28,24 @@ CMakeFiles/AssociationManager.dir/src/cEntityController.cpp.o
  /home/mdenysiuk/CLionProjects/AssociationManager/src/cEntityController.cpp
  /home/mdenysiuk/CLionProjects/AssociationManager/src/cEntityController.h
  /home/mdenysiuk/CLionProjects/AssociationManager/src/cStorage.h
+CMakeFiles/AssociationManager.dir/src/cHelperFunctions.cpp.o
+ /home/mdenysiuk/CLionProjects/AssociationManager/common/constants.h
+ /home/mdenysiuk/CLionProjects/AssociationManager/src/Logger.h
+ /home/mdenysiuk/CLionProjects/AssociationManager/src/cHelperFunctions.cpp
+ /home/mdenysiuk/CLionProjects/AssociationManager/src/cHelperFunctions.h
 CMakeFiles/AssociationManager.dir/src/cMsgValidator.cpp.o
  /home/mdenysiuk/CLionProjects/AssociationManager/common/commonTypes.h
  /home/mdenysiuk/CLionProjects/AssociationManager/common/constants.h
  /home/mdenysiuk/CLionProjects/AssociationManager/src/Logger.h
+ /home/mdenysiuk/CLionProjects/AssociationManager/src/cHelperFunctions.h
  /home/mdenysiuk/CLionProjects/AssociationManager/src/cMsgValidator.cpp
  /home/mdenysiuk/CLionProjects/AssociationManager/src/cMsgValidator.h
 CMakeFiles/AssociationManager.dir/src/cStorage.cpp.o
  /home/mdenysiuk/CLionProjects/AssociationManager/common/commonTypes.h
+ /home/mdenysiuk/CLionProjects/AssociationManager/common/constants.h
  /home/mdenysiuk/CLionProjects/AssociationManager/src/Logger.h
  /home/mdenysiuk/CLionProjects/AssociationManager/src/cEntity.h
+ /home/mdenysiuk/CLionProjects/AssociationManager/src/cHelperFunctions.h
  /home/mdenysiuk/CLionProjects/AssociationManager/src/cStorage.cpp
  /home/mdenysiuk/CLionProjects/AssociationManager/src/cStorage.h
 CMakeFiles/AssociationManager.dir/src/cView.cpp.o

@@ -32,7 +32,7 @@ public:
     void createEntity(const std::vector<std::string> &_msgData);
     void makeEnttityAssociation(const std::vector<std::string> &_msgData);
     void viewEntityData(const std::vector<std::string> &_msgData);
-//    cEntityController(Logger &_logger, cView &_viewer));
+//    cEntityController(aLogger &_logger, cView &_viewer));
     cEntityController(Logger &_logger);
 };
 

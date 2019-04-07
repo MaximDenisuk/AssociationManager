@@ -9,28 +9,34 @@
 #include "../common/commonTypes.h"
 #include "Logger.h"
 #include "cEntity.h"
-//#include "cEntityController.h"
+#include "../common/constants.h"
+
+class cEntityController;
 
 namespace commonTypes = common::commonTypes;
+namespace constants = common::constants;
 
 class cStorage {
 private:
     // TODO: add msg qeue for data saving + setters
     // TODO: start msg qeue in separate thread
-//    void responseLoadFullData();
 
-    Logger logger_;
+    void responseLoadFullData();
+
+    Logger &logger_;
+    cEntityController &entityController_;
     std::vector<cEntity> storedEntities_;
-//    cEntityController& entityController_;
+    commonTypes::eSTATUS currentStatus_;
+public:
+    commonTypes::eSTATUS getCurrentStatus_() const;
 
 public:
-    commonTypes::eSTATUS saveData(std::vector<cEntity> _entitiesToSave);
-    commonTypes::eSTATUS saveData(const cEntity &_entitiesToSave);
+    commonTypes::eSTATUS requestSaveFullData(std::vector<cEntity> _entitiesToSave);
+    commonTypes::eSTATUS requestSaveData(const cEntity &_entitiesToSave);
     commonTypes::eSTATUS requestLoadFullData();
     const std::vector<cEntity> &getStoredEntities_() const;
 
-//    cStorage(Logger _logger, cEntityController &_entityController);
-    cStorage(Logger &_logger);
+    cStorage(Logger _logger, cEntityController &_entityController);
 };
 
 inline const std::vector<cEntity> &
@@ -38,10 +44,9 @@ cStorage::getStoredEntities_() const {
     return storedEntities_;
 }
 
-//inline void
-//cStorage::responseLoadFullData() {
-//    logger_.print(__FUNCTION__);
-//    entityController_.responseLoadFullData();
-//}
+inline commonTypes::eSTATUS
+cStorage::getCurrentStatus_() const {
+    return currentStatus_;
+}
 
 #endif //ASSOCIATIONMANAGER_CSTORAGE_H

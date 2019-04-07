@@ -1,0 +1,7 @@
+- Entity:
+short_name:a
+long_name:Max
+- Entity:
+short_name:m
+long_name:Alex
+associations:m - qwe - a
