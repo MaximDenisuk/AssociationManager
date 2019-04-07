@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="AssociationManager"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/mdenysiuk/CLionProjects/AssociationManager_v2/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/mdenysiuk/CLionProjects/AssociationManager_v2/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/mdenysiuk/CLionProjects/AssociationManager_v2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/mdenysiuk/CLionProjects/AssociationManager_v2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/mdenysiuk/CLionProjects/AssociationManager_v2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/mdenysiuk/CLionProjects/AssociationManager_v2/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/mdenysiuk/CLionProjects/AssociationManager_v2/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/mdenysiuk/CLionProjects/AssociationManager_v2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/mdenysiuk/CLionProjects/AssociationManager_v2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/mdenysiuk/CLionProjects/AssociationManager_v2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="AssociationManager">
+				<Option output="/home/mdenysiuk/CLionProjects/AssociationManager_v2/cmake-build-debug/AssociationManager" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/mdenysiuk/CLionProjects/AssociationManager_v2/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/mdenysiuk/CLionProjects/AssociationManager_v2/cmake-build-debug/Makefile&quot;  VERBOSE=1 AssociationManager"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/mdenysiuk/CLionProjects/AssociationManager_v2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/mdenysiuk/CLionProjects/AssociationManager_v2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/mdenysiuk/CLionProjects/AssociationManager_v2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="AssociationManager/fast">
+				<Option output="/home/mdenysiuk/CLionProjects/AssociationManager_v2/cmake-build-debug/AssociationManager" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/mdenysiuk/CLionProjects/AssociationManager_v2/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/mdenysiuk/CLionProjects/AssociationManager_v2/cmake-build-debug/Makefile&quot;  VERBOSE=1 AssociationManager/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/mdenysiuk/CLionProjects/AssociationManager_v2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/mdenysiuk/CLionProjects/AssociationManager_v2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/mdenysiuk/CLionProjects/AssociationManager_v2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/mdenysiuk/CLionProjects/AssociationManager_v2/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/mdenysiuk/CLionProjects/AssociationManager_v2/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/mdenysiuk/CLionProjects/AssociationManager_v2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/mdenysiuk/CLionProjects/AssociationManager_v2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/mdenysiuk/CLionProjects/AssociationManager_v2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/mdenysiuk/CLionProjects/AssociationManager_v2/common/commonTypes.cpp">
+			<Option target="AssociationManager"/>
+		</Unit>
+		<Unit filename="/home/mdenysiuk/CLionProjects/AssociationManager_v2/common/commonTypes.h">
+			<Option target="AssociationManager"/>
+		</Unit>
+		<Unit filename="/home/mdenysiuk/CLionProjects/AssociationManager_v2/common/constants.h">
+			<Option target="AssociationManager"/>
+		</Unit>
+		<Unit filename="/home/mdenysiuk/CLionProjects/AssociationManager_v2/main.cpp">
+			<Option target="AssociationManager"/>
+		</Unit>
+		<Unit filename="/home/mdenysiuk/CLionProjects/AssociationManager_v2/src/Logger.cpp">
+			<Option target="AssociationManager"/>
+		</Unit>
+		<Unit filename="/home/mdenysiuk/CLionProjects/AssociationManager_v2/src/Logger.h">
+			<Option target="AssociationManager"/>
+		</Unit>
+		<Unit filename="/home/mdenysiuk/CLionProjects/AssociationManager_v2/src/cEntity.cpp">
+			<Option target="AssociationManager"/>
+		</Unit>
+		<Unit filename="/home/mdenysiuk/CLionProjects/AssociationManager_v2/src/cEntity.h">
+			<Option target="AssociationManager"/>
+		</Unit>
+		<Unit filename="/home/mdenysiuk/CLionProjects/AssociationManager_v2/src/cEntityController.cpp">
+			<Option target="AssociationManager"/>
+		</Unit>
+		<Unit filename="/home/mdenysiuk/CLionProjects/AssociationManager_v2/src/cEntityController.h">
+			<Option target="AssociationManager"/>
+		</Unit>
+		<Unit filename="/home/mdenysiuk/CLionProjects/AssociationManager_v2/src/cMsgValidator.cpp">
+			<Option target="AssociationManager"/>
+		</Unit>
+		<Unit filename="/home/mdenysiuk/CLionProjects/AssociationManager_v2/src/cMsgValidator.h">
+			<Option target="AssociationManager"/>
+		</Unit>
+		<Unit filename="/home/mdenysiuk/CLionProjects/AssociationManager_v2/src/cStorage.cpp">
+			<Option target="AssociationManager"/>
+		</Unit>
+		<Unit filename="/home/mdenysiuk/CLionProjects/AssociationManager_v2/src/cStorage.h">
+			<Option target="AssociationManager"/>
+		</Unit>
+		<Unit filename="/home/mdenysiuk/CLionProjects/AssociationManager_v2/src/cView.cpp">
+			<Option target="AssociationManager"/>
+		</Unit>
+		<Unit filename="/home/mdenysiuk/CLionProjects/AssociationManager_v2/src/cView.h">
+			<Option target="AssociationManager"/>
+		</Unit>
+		<Unit filename="/home/mdenysiuk/CLionProjects/AssociationManager_v2/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
