@@ -6,13 +6,13 @@
 
 #IncludeRegexTransform: 
 
-/home/mdenysiuk/CLionProjects/AssociationManager_v2/common/commonTypes.h
+/home/mdenysiuk/CLionProjects/AssociationManager/common/commonTypes.h
 
-/home/mdenysiuk/CLionProjects/AssociationManager_v2/common/constants.h
+/home/mdenysiuk/CLionProjects/AssociationManager/common/constants.h
 string
 -
 
-/home/mdenysiuk/CLionProjects/AssociationManager_v2/src/Logger.h
+/home/mdenysiuk/CLionProjects/AssociationManager/src/Logger.h
 string
 -
 iostream
@@ -20,53 +20,37 @@ iostream
 vector
 -
 
-/home/mdenysiuk/CLionProjects/AssociationManager_v2/src/cEntity.h
+/home/mdenysiuk/CLionProjects/AssociationManager/src/cEntity.h
 string
 -
 vector
 -
 
-/home/mdenysiuk/CLionProjects/AssociationManager_v2/src/cEntityController.h
-string
+/home/mdenysiuk/CLionProjects/AssociationManager/src/cEntityController.cpp
+algorithm
 -
-vector
--
-Logger.h
-/home/mdenysiuk/CLionProjects/AssociationManager_v2/src/Logger.h
-../common/constants.h
-/home/mdenysiuk/CLionProjects/AssociationManager_v2/common/constants.h
-cStorage.h
-/home/mdenysiuk/CLionProjects/AssociationManager_v2/src/cStorage.h
-cEntity.h
-/home/mdenysiuk/CLionProjects/AssociationManager_v2/src/cEntity.h
-
-/home/mdenysiuk/CLionProjects/AssociationManager_v2/src/cMsgValidator.h
-string
--
-vector
--
-../common/commonTypes.h
-/home/mdenysiuk/CLionProjects/AssociationManager_v2/common/commonTypes.h
-../common/constants.h
-/home/mdenysiuk/CLionProjects/AssociationManager_v2/common/constants.h
-Logger.h
-/home/mdenysiuk/CLionProjects/AssociationManager_v2/src/Logger.h
-
-/home/mdenysiuk/CLionProjects/AssociationManager_v2/src/cStorage.h
-../common/commonTypes.h
-/home/mdenysiuk/CLionProjects/AssociationManager_v2/common/commonTypes.h
-Logger.h
-/home/mdenysiuk/CLionProjects/AssociationManager_v2/src/Logger.h
-cEntity.h
-/home/mdenysiuk/CLionProjects/AssociationManager_v2/src/cEntity.h
-
-/home/mdenysiuk/CLionProjects/AssociationManager_v2/src/cView.cpp
-cView.h
-/home/mdenysiuk/CLionProjects/AssociationManager_v2/src/cView.h
-
-/home/mdenysiuk/CLionProjects/AssociationManager_v2/src/cView.h
-cMsgValidator.h
-/home/mdenysiuk/CLionProjects/AssociationManager_v2/src/cMsgValidator.h
 cEntityController.h
-/home/mdenysiuk/CLionProjects/AssociationManager_v2/src/cEntityController.h
+/home/mdenysiuk/CLionProjects/AssociationManager/src/cEntityController.h
+
+/home/mdenysiuk/CLionProjects/AssociationManager/src/cEntityController.h
+string
+-
+vector
+-
+Logger.h
+/home/mdenysiuk/CLionProjects/AssociationManager/src/Logger.h
+../common/constants.h
+/home/mdenysiuk/CLionProjects/AssociationManager/common/constants.h
+cStorage.h
+/home/mdenysiuk/CLionProjects/AssociationManager/src/cStorage.h
+cEntity.h
+/home/mdenysiuk/CLionProjects/AssociationManager/src/cEntity.h
+
+/home/mdenysiuk/CLionProjects/AssociationManager/src/cStorage.h
+../common/commonTypes.h
+/home/mdenysiuk/CLionProjects/AssociationManager/common/commonTypes.h
+Logger.h
+/home/mdenysiuk/CLionProjects/AssociationManager/src/Logger.h
+cEntity.h
+/home/mdenysiuk/CLionProjects/AssociationManager/src/cEntity.h
 

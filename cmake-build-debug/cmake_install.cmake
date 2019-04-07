@@ -1,4 +1,4 @@
-# Install script for directory: /home/mdenysiuk/CLionProjects/AssociationManager_v2
+# Install script for directory: /home/mdenysiuk/CLionProjects/AssociationManager
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/mdenysiuk/CLionProjects/AssociationManager_v2/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/mdenysiuk/CLionProjects/AssociationManager/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

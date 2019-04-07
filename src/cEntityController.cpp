@@ -43,8 +43,16 @@ void cEntityController::makeEnttityAssociation(const std::vector<std::string> &_
                 return _entity.getShortName_().compare(_msgData[0]) == 0;
             });
         if (pFoundEntity != entitiesList_.end() && !_msgData[1].empty() && !_msgData[2].empty()) {
-            pFoundEntity->addAssociation(_msgData[1], _msgData[2]);
-            logger_.print(__FUNCTION__, "Association added");
+            const auto kPAssociationTargetEntity = std::find_if(entitiesList_.begin(), entitiesList_.end(), [=] (cEntity _entity) {
+                return _entity.getShortName_().compare(_msgData[2]) == 0;
+            });
+            if (kPAssociationTargetEntity != entitiesList_.end()) {
+                pFoundEntity->addAssociation(_msgData[1], _msgData[2]);
+                logger_.print(__FUNCTION__, "Association added");
+            } else {
+//                viewer_.viewEntityInfo(dataToShow);
+                tmpEntityNotFoundError(_msgData[2]);
+            }
         } else {
             logger_.print(__FUNCTION__, "Entity with this name not found, create it at first, name: ", _msgData[0].c_str());
         }
@@ -103,6 +111,14 @@ void cEntityController::tmpViewEntityInfo(const std::vector<std::pair<std::strin
 
     } else {
 
+        logger_.printError(__FUNCTION__, "Data to show is empty");
+    }
+}
+
+void cEntityController::tmpEntityNotFoundError(const std::string &_entityName) {
+    if ( !_entityName.empty()) {
+        std::cout << "Mentiont entity \"" << _entityName << "\" doesn't exists !" << std::endl;
+    } else {
         logger_.printError(__FUNCTION__, "Data to show is empty");
     }
 }
