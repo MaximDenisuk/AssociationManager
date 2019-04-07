@@ -26,6 +26,7 @@ private:
     // TODO: after resolving problem with cross link between cEntityController and cView move tmp_functions to cView
     void tmpViewEntityInfo(const std::vector<std::pair<std::string, std::string>> &_entityDataToShow);
     void tmpEntityNotFoundError(const std::string &_entityName);
+    void tmpEntityAlreadyExists(const std::string &_entityName);
 public:
     void responseLoadFullData();
     void createEntity(const std::vector<std::string> &_msgData);

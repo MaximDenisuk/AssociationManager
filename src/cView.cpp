@@ -30,6 +30,8 @@ void cView::startInput() {
                   "3) print all data related to Entity using command \"?\", like:" << std::endl <<
                   "a ?" << std::endl <<
                   "For exit type \"q\"" << std::endl <<
+                  // TODO: add Force save after atomic save realisation
+                  //                  "If you want to make force save type \"forceSave\"" << std::endl <<
                   "TO see this msg again type \"help\"" << std::endl;
     };
     auto wrongSyntax = [] {

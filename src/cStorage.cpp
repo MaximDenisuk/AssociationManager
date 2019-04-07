@@ -20,6 +20,11 @@ commonTypes::eSTATUS cStorage::saveData(std::vector<cEntity> _entitiesToSave) {
     // TODO: release save logic with json/xml/yaml file structure
 }
 
+commonTypes::eSTATUS cStorage::saveData(const cEntity &_entitiesToSave) {
+    logger_.print(__FUNCTION__);
+    // TODO: release save logic with json/xml/yaml file structure
+}
+
 
 commonTypes::eSTATUS cStorage::requestLoadFullData() {
     logger_.print(__FUNCTION__);

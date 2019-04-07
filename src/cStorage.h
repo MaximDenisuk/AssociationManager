@@ -25,6 +25,7 @@ private:
 
 public:
     commonTypes::eSTATUS saveData(std::vector<cEntity> _entitiesToSave);
+    commonTypes::eSTATUS saveData(const cEntity &_entitiesToSave);
     commonTypes::eSTATUS requestLoadFullData();
     const std::vector<cEntity> &getStoredEntities_() const;
 

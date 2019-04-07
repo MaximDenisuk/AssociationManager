@@ -26,8 +26,17 @@ void cEntityController::createEntity(const std::vector<std::string> &_msgData) {
         const std::string shortName = _msgData[0],
                           longName = _msgData[1];
         if (!shortName.empty() && !longName.empty()) {
-            cEntity entity(shortName, longName);
-            entitiesList_.push_back(entity);
+            auto pFoundEntity = std::find_if(entitiesList_.begin(), entitiesList_.end(), [=] (cEntity _entity) {
+                return _entity.getShortName_().compare(shortName) == 0;
+            });
+            if (pFoundEntity == entitiesList_.end()) {
+                cEntity entity(shortName, longName);
+                entitiesList_.push_back(entity);
+                storage_.saveData(entitiesList_);
+            } else {
+                tmpEntityAlreadyExists(shortName);
+            }
+
         } else {
             logger_.printError(__FUNCTION__, "Wrong incomming data. Short or long name are empty");
         }
@@ -37,7 +46,6 @@ void cEntityController::createEntity(const std::vector<std::string> &_msgData) {
 }
 void cEntityController::makeEnttityAssociation(const std::vector<std::string> &_msgData) {
     logger_.print(__FUNCTION__);
-    // TODO: release logic of makeEnttityAssociation
     if (!_msgData.empty() && constants::MAKE_ASSOCIATION_MAX_PARAMS_COUNT  == _msgData.size()){
         auto pFoundEntity = std::find_if(entitiesList_.begin(), entitiesList_.end(), [=] (cEntity _entity) {
                 return _entity.getShortName_().compare(_msgData[0]) == 0;
@@ -48,6 +56,7 @@ void cEntityController::makeEnttityAssociation(const std::vector<std::string> &_
             });
             if (kPAssociationTargetEntity != entitiesList_.end()) {
                 pFoundEntity->addAssociation(_msgData[1], _msgData[2]);
+                storage_.saveData(entitiesList_);
                 logger_.print(__FUNCTION__, "Association added");
             } else {
 //                viewer_.viewEntityInfo(dataToShow);
@@ -110,7 +119,6 @@ void cEntityController::tmpViewEntityInfo(const std::vector<std::pair<std::strin
         }
 
     } else {
-
         logger_.printError(__FUNCTION__, "Data to show is empty");
     }
 }
@@ -118,6 +126,14 @@ void cEntityController::tmpViewEntityInfo(const std::vector<std::pair<std::strin
 void cEntityController::tmpEntityNotFoundError(const std::string &_entityName) {
     if ( !_entityName.empty()) {
         std::cout << "Mentiont entity \"" << _entityName << "\" doesn't exists !" << std::endl;
+    } else {
+        logger_.printError(__FUNCTION__, "Data to show is empty");
+    }
+}
+
+void cEntityController::tmpEntityAlreadyExists(const std::string &_entityName) {
+    if ( !_entityName.empty()) {
+        std::cout << "Mentiont entity short-name \"" << _entityName << "\" already exists!" << std::endl;
     } else {
         logger_.printError(__FUNCTION__, "Data to show is empty");
     }
