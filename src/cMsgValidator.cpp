@@ -3,6 +3,7 @@
 //
 
 #include "cMsgValidator.h"
+#include "cHelperFunctions.h"
 
 cMsgValidator::cMsgValidator(Logger &_logger):
     logger_(_logger) {
@@ -92,35 +93,7 @@ std::vector<std::string> cMsgValidator::parseAssociationMsg (const std::string &
     logger_.print(__FUNCTION__);
     std::vector<std::string> result;
     if (!_msg.empty()) {
-        std::string keyWord = "",
-                    tmpMsg = _msg;
-        uint shiftFromLeft = 0;
-        uint endKeywordPosition = 0;
-
-        while (shiftFromLeft != _msg.length()) {
-            endKeywordPosition = tmpMsg.find(constants::kCreateAssociation);
-            if (-1 != endKeywordPosition) {
-                keyWord = tmpMsg.substr(0, endKeywordPosition);
-                shiftFromLeft += endKeywordPosition + constants::kCreateAssociation.length();
-                tmpMsg = _msg.substr(shiftFromLeft, _msg.length());
-
-                if (!keyWord.empty()) {
-                    result.push_back(keyWord);
-                } else {
-                    logger_.printError(__FUNCTION__, "KeyWord is empty!");
-                    break;
-                }
-            } else if (shiftFromLeft < _msg.length()) {
-                keyWord = tmpMsg.substr(0, _msg.length());
-                if (!keyWord.empty()) {
-                    result.push_back(keyWord);
-                    shiftFromLeft = _msg.length();
-                } else {
-                    logger_.printError(__FUNCTION__, "KeyWord is empty!");
-                    break;
-                }
-            }
-        }
+        result = cHelperFunctions::associationMnagerParser(_msg);
     } else {
         logger_.printError(__FUNCTION__, "Input msg is empty");
     }

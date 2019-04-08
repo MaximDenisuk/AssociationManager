@@ -19,18 +19,14 @@ iostream
 -
 vector
 -
+../common/constants.h
+/home/mdenysiuk/CLionProjects/AssociationManager/common/constants.h
 
 /home/mdenysiuk/CLionProjects/AssociationManager/src/cEntity.h
 string
 -
 vector
 -
-
-/home/mdenysiuk/CLionProjects/AssociationManager/src/cEntityController.cpp
-algorithm
--
-cEntityController.h
-/home/mdenysiuk/CLionProjects/AssociationManager/src/cEntityController.h
 
 /home/mdenysiuk/CLionProjects/AssociationManager/src/cEntityController.h
 string
@@ -46,6 +42,18 @@ cStorage.h
 cEntity.h
 /home/mdenysiuk/CLionProjects/AssociationManager/src/cEntity.h
 
+/home/mdenysiuk/CLionProjects/AssociationManager/src/cMsgValidator.h
+string
+-
+vector
+-
+../common/commonTypes.h
+/home/mdenysiuk/CLionProjects/AssociationManager/common/commonTypes.h
+../common/constants.h
+/home/mdenysiuk/CLionProjects/AssociationManager/common/constants.h
+Logger.h
+/home/mdenysiuk/CLionProjects/AssociationManager/src/Logger.h
+
 /home/mdenysiuk/CLionProjects/AssociationManager/src/cStorage.h
 ../common/commonTypes.h
 /home/mdenysiuk/CLionProjects/AssociationManager/common/commonTypes.h
@@ -53,4 +61,16 @@ Logger.h
 /home/mdenysiuk/CLionProjects/AssociationManager/src/Logger.h
 cEntity.h
 /home/mdenysiuk/CLionProjects/AssociationManager/src/cEntity.h
+../common/constants.h
+/home/mdenysiuk/CLionProjects/AssociationManager/common/constants.h
+
+/home/mdenysiuk/CLionProjects/AssociationManager/src/cView.cpp
+cView.h
+/home/mdenysiuk/CLionProjects/AssociationManager/src/cView.h
+
+/home/mdenysiuk/CLionProjects/AssociationManager/src/cView.h
+cMsgValidator.h
+/home/mdenysiuk/CLionProjects/AssociationManager/src/cMsgValidator.h
+cEntityController.h
+/home/mdenysiuk/CLionProjects/AssociationManager/src/cEntityController.h
 

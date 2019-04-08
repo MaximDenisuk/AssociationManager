@@ -14,17 +14,13 @@ private:
     std::string shortName_,
                 longName_;
     std::vector<std::pair<std::string, std::string>> associationList;
-public:
-    const std::vector<std::pair<std::string, std::string>> &getAssociationList() const;
 
 public:
-    const std::vector<std::string, std::string> &getPointTo_() const;
-
-public:
-    const std::string &getLongName_() const;
     void setLongName_(const std::string &longName_);
-    const std::string &getShortName_() const;
     void setShortName_(const std::string &shortName_);
+    const std::vector<std::pair<std::string, std::string>> &getAssociationList() const;
+    const std::string &getLongName_() const;
+    const std::string &getShortName_() const;
     void addAssociation(const std::string& _associatedWith, const std::string& _associationName);
 
     cEntity(const std::string &_shortName, const std::string &_longName);

@@ -15,6 +15,7 @@ namespace constants {
     static const std::string kCreateEntity = " = ";
     static const std::string kCreateAssociation = " - ";
     static const std::string kViewInfo = " ?";
+    static const std::string kFileName = "AssociationManagerStorage.txt";
     static const uint VIEW_ENTITY_MAX_PARAMS_COUNT = 1;
     static const uint CREATE_ENTITY_MAX_PARAMS_COUNT = 2;
     static const uint MAKE_ASSOCIATION_MAX_PARAMS_COUNT = 3;

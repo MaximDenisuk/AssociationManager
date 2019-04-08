@@ -258,6 +258,33 @@ src/cEntityController.cpp.s:
 	$(MAKE) -f CMakeFiles/AssociationManager.dir/build.make CMakeFiles/AssociationManager.dir/src/cEntityController.cpp.s
 .PHONY : src/cEntityController.cpp.s
 
+src/cHelperFunctions.o: src/cHelperFunctions.cpp.o
+
+.PHONY : src/cHelperFunctions.o
+
+# target to build an object file
+src/cHelperFunctions.cpp.o:
+	$(MAKE) -f CMakeFiles/AssociationManager.dir/build.make CMakeFiles/AssociationManager.dir/src/cHelperFunctions.cpp.o
+.PHONY : src/cHelperFunctions.cpp.o
+
+src/cHelperFunctions.i: src/cHelperFunctions.cpp.i
+
+.PHONY : src/cHelperFunctions.i
+
+# target to preprocess a source file
+src/cHelperFunctions.cpp.i:
+	$(MAKE) -f CMakeFiles/AssociationManager.dir/build.make CMakeFiles/AssociationManager.dir/src/cHelperFunctions.cpp.i
+.PHONY : src/cHelperFunctions.cpp.i
+
+src/cHelperFunctions.s: src/cHelperFunctions.cpp.s
+
+.PHONY : src/cHelperFunctions.s
+
+# target to generate assembly for a file
+src/cHelperFunctions.cpp.s:
+	$(MAKE) -f CMakeFiles/AssociationManager.dir/build.make CMakeFiles/AssociationManager.dir/src/cHelperFunctions.cpp.s
+.PHONY : src/cHelperFunctions.cpp.s
+
 src/cMsgValidator.o: src/cMsgValidator.cpp.o
 
 .PHONY : src/cMsgValidator.o
@@ -363,6 +390,9 @@ help:
 	@echo "... src/cEntityController.o"
 	@echo "... src/cEntityController.i"
 	@echo "... src/cEntityController.s"
+	@echo "... src/cHelperFunctions.o"
+	@echo "... src/cHelperFunctions.i"
+	@echo "... src/cHelperFunctions.s"
 	@echo "... src/cMsgValidator.o"
 	@echo "... src/cMsgValidator.i"
 	@echo "... src/cMsgValidator.s"

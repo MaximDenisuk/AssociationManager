@@ -114,6 +114,12 @@
 		<Unit filename="/home/mdenysiuk/CLionProjects/AssociationManager/src/cEntityController.h">
 			<Option target="AssociationManager"/>
 		</Unit>
+		<Unit filename="/home/mdenysiuk/CLionProjects/AssociationManager/src/cHelperFunctions.cpp">
+			<Option target="AssociationManager"/>
+		</Unit>
+		<Unit filename="/home/mdenysiuk/CLionProjects/AssociationManager/src/cHelperFunctions.h">
+			<Option target="AssociationManager"/>
+		</Unit>
 		<Unit filename="/home/mdenysiuk/CLionProjects/AssociationManager/src/cMsgValidator.cpp">
 			<Option target="AssociationManager"/>
 		</Unit>

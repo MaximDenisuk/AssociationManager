@@ -7,6 +7,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/AssociationManager.dir/src/cStorage.cpp.o"
   "CMakeFiles/AssociationManager.dir/src/cEntity.cpp.o"
   "CMakeFiles/AssociationManager.dir/src/cView.cpp.o"
+  "CMakeFiles/AssociationManager.dir/src/cHelperFunctions.cpp.o"
   "AssociationManager.pdb"
   "AssociationManager"
 )
