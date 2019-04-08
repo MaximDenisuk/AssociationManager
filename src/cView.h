@@ -20,6 +20,9 @@ public:
     void start();
 
     void viewEntityInfo(const std::vector<std::pair<std::string, std::string>> &_entityDataToShow);
+    void entityNotFoundError(const std::string &_entityName);
+    void entityAlreadyExists(const std::string &_entityName);
+
     cView(const bool _isLoggerNeeded);
     ~cView();
 };

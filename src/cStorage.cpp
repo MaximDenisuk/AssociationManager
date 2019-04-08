@@ -5,6 +5,12 @@
 #include <fstream>
 #include "cStorage.h"
 #include "cHelperFunctions.h"
+#include "cEntityController.h"
+
+const std::string ENTITY_START = "- Entity:";
+const std::string ASSOCIATION_START = "association: ";
+const std::string SHORT_NAME = "short_name:";
+const std::string LONG_NAME = "long_name:";
 
 cStorage::cStorage(Logger _logger, cEntityController &_entityController):
     logger_(_logger),
@@ -19,11 +25,11 @@ commonTypes::eSTATUS cStorage::requestSaveFullData(std::vector<cEntity> _entitie
         file.open (constants::kFileName);
 
         for (const auto entity: _entitiesToSave) {
-            file <<  "- Entity:\n";
-            file << "short_name:" << entity.getShortName_() << "\n";
-            file << "long_name:" << entity.getLongName_() << "\n";
+            file <<  ENTITY_START << "\n";
+            file << SHORT_NAME << entity.getShortName_() << "\n";
+            file << LONG_NAME << entity.getLongName_() << "\n";
             for (const auto association : entity.getAssociationList()) {
-                file << "associations:"
+                file << ASSOCIATION_START
                      << entity.getShortName_()
                      << " - " << association.first
                      << " - "
@@ -46,58 +52,58 @@ commonTypes::eSTATUS cStorage::requestLoadFullData() {
     logger_.print(__FUNCTION__);
 
     std::ifstream myfile (constants::kFileName);
-    const std::string kEntityStart = "- Entity:";
-    const std::string kAssociations = "association:";
-    const std::string kShortName = "short_name:";
-    const std::string kLongName = "long_name:";
-    std::vector<cEntity> entitiesFromFile;
-    std::string linefromFile;
+    std::string linefromFile = "";
+    std::vector<cEntity> readEntities;
 
     if (myfile.is_open()) {
         cEntity entity("", "");
         while (getline(myfile, linefromFile)) {
-            if (0 == linefromFile.compare(kEntityStart) &&
+            if (0 == linefromFile.compare(ENTITY_START) &&
                 !entity.getShortName_().empty() &&
                 !entity.getLongName_().empty()) {
-                entitiesFromFile.push_back(entity);
+                readEntities.push_back(entity);
                 logger_.print(__FUNCTION__, "push entity: ", entity.getLongName_());
-            } else if (const auto namePos = linefromFile.find(kShortName) != std::string::npos) {
-                entity.setShortName_(linefromFile.substr(namePos + kShortName.length(), linefromFile.length()));
-            } else if (const auto namePos = linefromFile.find(kLongName) != std::string::npos) {
-                entity.setLongName_(linefromFile.substr(namePos + kLongName.length(), linefromFile.length()));
-            } else if (const auto namePos = linefromFile.find(kAssociations) != std::string::npos) {
-                std::string associationLine = linefromFile.substr(namePos + kAssociations.length(), linefromFile.length());
+                entity = cEntity("", "");
+            } else if (linefromFile.find(SHORT_NAME) != -1) {
+                std::string tmpStr = linefromFile.substr(SHORT_NAME.length(), linefromFile.length());
+                entity.setShortName_(tmpStr);
+            } else if (linefromFile.find(LONG_NAME) != -1) {
+                std::string tmpStr = linefromFile.substr(LONG_NAME.length(), linefromFile.length());
+                entity.setLongName_(tmpStr);
+            } else if (linefromFile.find(ASSOCIATION_START) != -1) {
+                std::string associationLine = linefromFile.substr(ASSOCIATION_START.length(), linefromFile.length());
                 if (!associationLine.empty()) {
                     std::vector<std::string> associationData =
                             cHelperFunctions::associationMnagerParser(associationLine);
                     if (!associationData.empty() &&
                         constants::MAKE_ASSOCIATION_MAX_PARAMS_COUNT == associationData.size()) {
                         if (!associationData[1].empty() && !associationData[2].empty()) {
-                            entity.addAssociation(associationData[2], associationData[1]);
+                            entity.addAssociation(associationData[1], associationData[2]);
                         } else {
-                            logger_.printError(__FUNCTION__, "read names are incorrect!");
+                            logger_.print(__FUNCTION__, "read names are incorrect!");
+                            break;
                         }
-
                     } else {
-                        logger_.printError(__FUNCTION__, "Wrong association parameters size!");
+                        logger_.print(__FUNCTION__, "Wrong association parameters size!");
+                        break;
                     }
                 } else {
-                    logger_.printError(__FUNCTION__, "Association line is empty!");
+                    logger_.print(__FUNCTION__, "Association line is empty!");
+                    break;
                 }
             } else {
-                logger_.printError(__FUNCTION__, "Unhandled line!!! Smth go wrong");
+//                logger_.print(__FUNCTION__, "Unhandled line!!! Smth go wrong");
+//                break;
             }
         }
         myfile.close();
     } else {
-        logger_.printError(__FUNCTION__, "File is already opened");
+        logger_.print(__FUNCTION__, "File is already opened");
     }
-    storedEntities_ = entitiesFromFile;
     responseLoadFullData();
 }
 
-void
-cStorage::responseLoadFullData() {
+void cStorage::responseLoadFullData() {
     logger_.print(__FUNCTION__);
     entityController_.responseLoadFullData();
 }

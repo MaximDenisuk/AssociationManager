@@ -25,15 +25,15 @@ private:
 
     Logger &logger_;
     cEntityController &entityController_;
-    std::vector<cEntity> storedEntities_;
-    commonTypes::eSTATUS currentStatus_;
-public:
-    commonTypes::eSTATUS getCurrentStatus_() const;
 
+    std::vector<cEntity> storedEntities_;
+    // TODO: add set appropriate status during operations
+    commonTypes::eSTATUS currentStatus_;
 public:
     commonTypes::eSTATUS requestSaveFullData(std::vector<cEntity> _entitiesToSave);
     commonTypes::eSTATUS requestSaveData(const cEntity &_entitiesToSave);
     commonTypes::eSTATUS requestLoadFullData();
+    commonTypes::eSTATUS getCurrentStatus_() const;
     const std::vector<cEntity> &getStoredEntities_() const;
 
     cStorage(Logger _logger, cEntityController &_entityController);

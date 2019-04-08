@@ -5,10 +5,10 @@
 #include "cHelperFunctions.h"
 
 std::vector<std::string> cHelperFunctions::associationMnagerParser(const std::string &_msg) {
-    Logger logger(constants::kIsLoggerNeeded);
+    Logger logger;
     std::vector<std::string> result;
     std::string keyWord = "",
-            tmpMsg = _msg;
+                tmpMsg = _msg;
     uint shiftFromLeft = 0;
     uint endKeywordPosition = 0;
 

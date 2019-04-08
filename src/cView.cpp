@@ -5,9 +5,9 @@
 #include "cView.h"
 
 cView::cView(const bool _isLoggerNeeded):
-        logger_(Logger(_isLoggerNeeded)),
+        logger_(Logger()),
         msgValidator_(cMsgValidator(logger_)),
-        controller_(cEntityController(logger_)) {
+        controller_(cEntityController(logger_, *this)) {
 
 }
 
@@ -20,6 +20,7 @@ cView::~cView() {
 }
 
 void cView::startInput() {
+    logger_.print(__FUNCTION__);
     auto help = [] {
         std::cout << "Hello, this is Association Manager!" << std::endl <<
                   "In this programm you are able to:" << std::endl <<
@@ -90,29 +91,42 @@ void cView::start() {
     startInput();
 }
 
-//TODO: Find solution aout how to share cView to controller
-//void cView::viewEntityInfo(const std::vector<std::pair<std::string, std::string>> &_entityDataToShow) {
-//    //    std::cout << "\t:" << association.first << " . " << association.second << std::endl;
-//    if (!_entityDataToShow.empty()) {
-//        std::string entityName;
-//        if (!_entityDataToShow[0].second.empty()) {
-//            entityName = _entityDataToShow[0].second;
-//        } else if (!_entityDataToShow[0].first.empty()) {
-//            entityName = _entityDataToShow[0].first;
-//        }
-//        std::cout << "Entity name is: " << entityName << std::endl;
-//        std::cout << "Assotiacions list: " << std::endl;
-////        for (std::iterator it = _entityDataToShow.begin()+1;; )
-//        for(std::vector<std::pair<std::string, std::string>>::const_iterator itAssotioation = _entityDataToShow.begin()+1;
-//            itAssotioation != _entityDataToShow.end();
-//            ++itAssotioation) {
-//            if (!itAssotioation.first.empty() && !itAssotioation.second.empty()) {
-//                std::cout << "\t: " << itAssotioation.first << " -. " << itAssotioation.second << std::endl;
-//            }
-//        }
-//
-//    } else {
-//
-//        logger_.printError(__FUNCTION__, "Data to show is empty");
-//    }
-//}
+void cView::viewEntityInfo(const std::vector<std::pair<std::string, std::string>> &_entityDataToShow) {
+    //    std::cout << "\t:" << association.first << " -> " << association.second << std::endl;
+    if (!_entityDataToShow.empty()) {
+        std::string entityName;
+        if (!_entityDataToShow[0].second.empty()) {
+            entityName = _entityDataToShow[0].second;
+        } else if (!_entityDataToShow[0].first.empty()) {
+            entityName = _entityDataToShow[0].first;
+        }
+        std::cout << "Entity name is: " << entityName << std::endl;
+        std::cout << "Assotiacions list: " << std::endl;
+        for(std::vector<std::pair<std::string, std::string>>::const_iterator itAssotioation = _entityDataToShow.begin()+1;
+            itAssotioation != _entityDataToShow.end();
+            ++itAssotioation) {
+            if (!itAssotioation->first.empty() && !itAssotioation->second.empty()) {
+                std::cout << "\t: " << itAssotioation->first << " --> " << itAssotioation->second << std::endl;
+            }
+        }
+
+    } else {
+        logger_.printError(__FUNCTION__, "Data to show is empty");
+    }
+}
+
+void cView::entityNotFoundError(const std::string &_entityName) {
+    if ( !_entityName.empty()) {
+        std::cout << "Mentiont entity \"" << _entityName << "\" doesn't exists !" << std::endl;
+    } else {
+        logger_.printError(__FUNCTION__, "Data to show is empty");
+    }
+}
+
+void cView::entityAlreadyExists(const std::string &_entityName) {
+    if ( !_entityName.empty()) {
+        std::cout << "Mentiont entity short-name \"" << _entityName << "\" already exists!" << std::endl;
+    } else {
+        logger_.printError(__FUNCTION__, "Data to show is empty");
+    }
+}

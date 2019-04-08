@@ -1,7 +1,15 @@
 - Entity:
 short_name:a
-long_name:Max
+long_name:Alex
+association: a - help - m
+association: a - help 1 - m
+association: a - aa - a
+association: a - aa - a
 - Entity:
 short_name:m
-long_name:Alex
-associations:m - qwe - a
+long_name:Max
+association: m - do - a
+association: m - do 1 - a
+- Entity:
+short_name:c
+long_name:Cat
