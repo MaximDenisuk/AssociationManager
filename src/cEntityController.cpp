@@ -56,9 +56,18 @@ void cEntityController::makeEnttityAssociation(const std::vector<std::string> &_
                 return _entity.getShortName_().compare(_msgData[2]) == 0;
             });
             if (kPAssociationTargetEntity != entitiesList_.end()) {
-                pFoundEntity->addAssociation(_msgData[1], _msgData[2]);
-                storage_.requestSaveFullData(entitiesList_);
-                logger_.print(__FUNCTION__, "Association added");
+                const auto isThisAssociationNotExists = std::find_if(pFoundEntity->getAssociationList().begin(),
+                                                                     pFoundEntity->getAssociationList().end(),
+                                                                     [=] (std::pair<std::string, std::string> _names) {
+                     return 0 == _names.first.compare(_msgData[1]) &&  0 == _names.second.compare(_msgData[2]);
+                });
+                if (isThisAssociationNotExists == pFoundEntity->getAssociationList().end()) {
+                    pFoundEntity->addAssociation(_msgData[1], _msgData[2]);
+                    storage_.requestSaveFullData(entitiesList_);
+                    logger_.print(__FUNCTION__, "Association added");
+                } else {
+                    viewer_.associationAlreadyExists(*isThisAssociationNotExists);
+                }
             } else {
                 viewer_.entityNotFoundError(_msgData[2]);
             }
@@ -95,4 +104,13 @@ void cEntityController::viewEntityData(const std::vector<std::string> &_msgData)
     } else {
         logger_.printError(__FUNCTION__, "Wrong incomming data. It is empty or wrong size");
     }
+}
+
+void cEntityController::viewEntities() {
+    logger_.print(__FUNCTION__);
+    std::vector<std::pair<std::string, std::string>> entityNames;
+    for (const auto entity : entitiesList_) {
+        entityNames.push_back(std::pair<std::string, std::string>(entity.getShortName_(), entity.getLongName_()));
+    }
+    viewer_.viewEntities(entityNames);
 }

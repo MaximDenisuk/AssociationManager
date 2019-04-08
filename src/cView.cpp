@@ -21,19 +21,20 @@ cView::~cView() {
 
 void cView::startInput() {
     logger_.print(__FUNCTION__);
+    // TODO: add Force save after atomic save realisation
+    //                  "If you want to make force save type \"forceSave\"" << std::endl <<
+    std::cout << "Hello, this is Association Manager!" << std::endl <<
+              "In this programm you are able to:" << std::endl <<
+              "1) create Entity using simple command \"=\", like:" << std::endl <<
+              "a = Alex " << std::endl <<
+              "2) make association between entities using \"- key -\", like:" << std::endl <<
+              "a - to do the best - a"<< std::endl <<
+              "3) print all data related to Entity using command \"?\", like:" << std::endl <<
+              "a ?" << std::endl <<
+              "4) To see all exists entities type \"view exists\"" << std:: endl <<
+              "For exit type \"q\"" << std::endl <<
+              "To see this msg again type \"help\"" << std::endl;
     auto help = [] {
-        std::cout << "Hello, this is Association Manager!" << std::endl <<
-                  "In this programm you are able to:" << std::endl <<
-                  "1) create Entity using simple command \"=\", like:" << std::endl <<
-                  "a = Alex " << std::endl <<
-                  "2) make association between entities using \"- key -\", like:" << std::endl <<
-                  "a - to do the best - a"<< std::endl <<
-                  "3) print all data related to Entity using command \"?\", like:" << std::endl <<
-                  "a ?" << std::endl <<
-                  "For exit type \"q\"" << std::endl <<
-                  // TODO: add Force save after atomic save realisation
-                  //                  "If you want to make force save type \"forceSave\"" << std::endl <<
-                  "TO see this msg again type \"help\"" << std::endl;
     };
     auto wrongSyntax = [] {
         std::cout << "Wrong syntax!" << std::endl;
@@ -50,6 +51,8 @@ void cView::startInput() {
                 break;
             } else if (userMessage.compare("help") == 0) {
                 help();
+            } else  if (userMessage.compare("view exists") == 0){
+                controller_.viewEntities();
             } else {
                 // send request to inputValidator
                 common::commonTypes::eMSG_PATTERN msgPattern = msgValidator_.isOneOfMsgPatterns(userMessage);
@@ -128,5 +131,27 @@ void cView::entityAlreadyExists(const std::string &_entityName) {
         std::cout << "Mentiont entity short-name \"" << _entityName << "\" already exists!" << std::endl;
     } else {
         logger_.printError(__FUNCTION__, "Data to show is empty");
+    }
+}
+
+void cView::viewEntities(const std::vector<std::pair<std::string, std::string>> &_entityNames) {
+    if (!_entityNames.empty()) {
+        std::cout << "Exists entities: " << std::endl;
+        for (const auto names : _entityNames) {
+            std::cout << names.first << " = " << names.second << std::endl;
+        }
+    } else {
+        std::cout << "No data to show" << std::endl;
+    }
+}
+
+void cView::associationAlreadyExists(const std::pair<std::string, std::string> &_association) {
+    if (!_association.first.empty() && !_association.second.empty()) {
+        std::cout << "Association \""
+            << _association.first
+            << "\" already exists and points to \""
+            << _association.second
+            << "\""
+            << std::endl;
     }
 }

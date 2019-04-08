@@ -13,22 +13,10 @@
   <component name="ChangeListManager">
     <list default="true" id="720a0176-2971-4046-b3e7-9a665fa08c6d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/AssociationManagerStorage.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/AssociationManagerStorage.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AssociationManager.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AssociationManager.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AssociationManager.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AssociationManager.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AssociationManager.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AssociationManager.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Progress/1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Progress/5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Progress/6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Progress/8" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Progress/count.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Logger.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logger.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Logger.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logger.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cEntityController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/cEntityController.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cEntityController.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/cEntityController.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cHelperFunctions.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/cHelperFunctions.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cStorage.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/cStorage.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cStorage.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/cStorage.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cView.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/cView.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cView.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/cView.h" afterDir="false" />
     </list>
@@ -42,41 +30,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/cStorage.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="326">
-              <caret line="84" column="25" selection-start-line="84" selection-start-column="25" selection-end-line="84" selection-end-column="25" />
-              <folding>
-                <element signature="e#44#62#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file:///usr/include/c++/5/bits/stl_vector.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="16668">
-              <caret line="926" selection-start-line="926" selection-end-line="926" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cStorage.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="702">
-              <caret line="39" column="1" selection-start-line="18" selection-end-line="39" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cEntityController.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
+            <state relative-caret-position="300">
+              <caret line="68" column="43" selection-start-line="68" selection-start-column="43" selection-end-line="68" selection-end-column="43" />
               <folding>
                 <element signature="e#44#64#0" expanded="true" />
               </folding>
@@ -88,10 +46,31 @@
         <entry file="file://$PROJECT_DIR$/src/cEntityController.h">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="432">
-              <caret line="24" column="28" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
+              <caret line="24" column="19" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
               <folding>
                 <element signature="e#140#157#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cStorage.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="215">
+              <caret line="102" column="35" lean-forward="true" selection-start-line="102" selection-start-column="35" selection-end-line="102" selection-end-column="35" />
+              <folding>
+                <element signature="e#44#62#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cView.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="432">
+              <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="91" />
             </state>
           </provider>
         </entry>
@@ -108,8 +87,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cEntity.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="738">
-              <caret line="41" selection-start-line="41" selection-end-line="41" />
+            <state relative-caret-position="270">
+              <caret line="15" column="51" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="51" />
             </state>
           </provider>
         </entry>
@@ -123,11 +102,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/cView.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+            <state relative-caret-position="400">
+              <caret line="151" column="35" lean-forward="true" selection-start-line="151" selection-start-column="35" selection-end-line="151" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -174,6 +153,9 @@
       <find>length</find>
       <find>&amp;</find>
       <find>&amp;_</find>
+      <find>isAssociationNameNotExists</find>
+      <find>readEntities</find>
+      <find>pFoundEntity</find>
     </findStrings>
     <replaceStrings>
       <replace>constants</replace>
@@ -192,16 +174,16 @@
         <option value="$PROJECT_DIR$/common/constants.h" />
         <option value="$PROJECT_DIR$/src/cHelperFunctions.h" />
         <option value="$PROJECT_DIR$/src/cMsgValidator.cpp" />
-        <option value="$PROJECT_DIR$/src/cView.h" />
-        <option value="$PROJECT_DIR$/src/cEntityController.h" />
         <option value="$PROJECT_DIR$/src/cStorage.h" />
         <option value="$PROJECT_DIR$/src/cEntity.h" />
-        <option value="$PROJECT_DIR$/src/cEntityController.cpp" />
         <option value="$PROJECT_DIR$/src/Logger.cpp" />
         <option value="$PROJECT_DIR$/src/Logger.h" />
-        <option value="$PROJECT_DIR$/src/cView.cpp" />
         <option value="$PROJECT_DIR$/src/cHelperFunctions.cpp" />
+        <option value="$PROJECT_DIR$/src/cEntityController.h" />
+        <option value="$PROJECT_DIR$/src/cView.h" />
         <option value="$PROJECT_DIR$/src/cStorage.cpp" />
+        <option value="$PROJECT_DIR$/src/cEntityController.cpp" />
+        <option value="$PROJECT_DIR$/src/cView.cpp" />
       </list>
     </option>
   </component>
@@ -217,6 +199,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -243,7 +226,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -303,18 +285,19 @@
       <workItem from="1554739864093" duration="1793000" />
       <workItem from="1554741685157" duration="1792000" />
       <workItem from="1554743578951" duration="2093000" />
-      <workItem from="1554745692517" duration="39000" />
+      <workItem from="1554745692517" duration="1794000" />
+      <workItem from="1554747512414" duration="1702000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35080000" />
+    <option name="totallyTimeSpent" value="38537000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="80" y="-5" width="1841" height="1086" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20695457" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20975883" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -343,29 +326,14 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/cStorage.cpp</url>
-          <line>72</line>
-          <option name="timeStamp" value="31" />
+          <url>file://$PROJECT_DIR$/src/cEntityController.cpp</url>
+          <line>59</line>
+          <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/cStorage.cpp</url>
-          <line>60</line>
-          <option name="timeStamp" value="34" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/cStorage.cpp</url>
-          <line>66</line>
-          <option name="timeStamp" value="35" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/cStorage.cpp</url>
-          <line>98</line>
-          <option name="timeStamp" value="38" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/cStorage.cpp</url>
-          <line>102</line>
-          <option name="timeStamp" value="40" />
+          <url>file://$PROJECT_DIR$/src/cEntityController.cpp</url>
+          <line>63</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -395,17 +363,9 @@
     <entry file="file://$PROJECT_DIR$/cmake-build-debug/Makefile">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cView.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="19" column="10" lean-forward="true" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/cMsgValidator.h">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/AssociationManagerStorage.txt" />
     <entry file="file:///usr/include/c++/5/bits/vector.tcc">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="174">
@@ -423,47 +383,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cStorage.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="84" column="25" selection-start-line="84" selection-start-column="25" selection-end-line="84" selection-end-column="25" />
-          <folding>
-            <element signature="e#44#62#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/include/c++/5/bits/stl_vector.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16668">
+        <state relative-caret-position="390">
           <caret line="926" selection-start-line="926" selection-end-line="926" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cStorage.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="702">
-          <caret line="39" column="1" selection-start-line="18" selection-end-line="39" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cEntityController.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
-          <folding>
-            <element signature="e#44#64#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cEntityController.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="24" column="28" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
-          <folding>
-            <element signature="e#140#157#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="242">
+          <caret line="29" column="57" lean-forward="true" selection-start-line="29" selection-start-column="57" selection-end-line="29" selection-end-column="57" />
         </state>
       </provider>
     </entry>
@@ -476,8 +406,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cEntity.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="738">
-          <caret line="41" selection-start-line="41" selection-end-line="41" />
+        <state relative-caret-position="270">
+          <caret line="15" column="51" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="51" />
         </state>
       </provider>
     </entry>
@@ -488,13 +418,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cView.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Logger.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="414">
@@ -502,6 +425,53 @@
           <folding>
             <element signature="e#118#135#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cView.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/AssociationManagerStorage.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cEntityController.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="24" column="19" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
+          <folding>
+            <element signature="e#140#157#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cStorage.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="102" column="35" lean-forward="true" selection-start-line="102" selection-start-column="35" selection-end-line="102" selection-end-column="35" />
+          <folding>
+            <element signature="e#44#62#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cEntityController.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="68" column="43" selection-start-line="68" selection-start-column="43" selection-end-line="68" selection-end-column="43" />
+          <folding>
+            <element signature="e#44#64#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cView.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="151" column="35" lean-forward="true" selection-start-line="151" selection-start-column="35" selection-end-line="151" selection-end-column="35" />
         </state>
       </provider>
     </entry>

@@ -100,6 +100,7 @@ commonTypes::eSTATUS cStorage::requestLoadFullData() {
     } else {
         logger_.print(__FUNCTION__, "File is already opened");
     }
+    storedEntities_ = readEntities;
     responseLoadFullData();
 }
 

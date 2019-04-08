@@ -22,6 +22,8 @@ public:
     void viewEntityInfo(const std::vector<std::pair<std::string, std::string>> &_entityDataToShow);
     void entityNotFoundError(const std::string &_entityName);
     void entityAlreadyExists(const std::string &_entityName);
+    void viewEntities(const std::vector<std::pair<std::string, std::string>> &_entityNames);
+    void associationAlreadyExists(const std::pair<std::string, std::string> &_association);
 
     cView(const bool _isLoggerNeeded);
     ~cView();
