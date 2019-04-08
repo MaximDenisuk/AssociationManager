@@ -10,7 +10,7 @@
 namespace common {
 namespace constants {
 
-    static const bool kIsLoggerNeeded = true;
+    static const bool kIsLoggerNeeded = false;
 
     static const std::string kCreateEntity = " = ";
     static const std::string kCreateAssociation = " - ";

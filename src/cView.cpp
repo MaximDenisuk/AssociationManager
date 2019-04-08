@@ -31,7 +31,7 @@ void cView::startInput() {
               "a - to do the best - a"<< std::endl <<
               "3) print all data related to Entity using command \"?\", like:" << std::endl <<
               "a ?" << std::endl <<
-              "4) To see all exists entities type \"view exists\"" << std:: endl <<
+              "4) To see all exists entities type \"-v\"" << std:: endl <<
               "For exit type \"q\"" << std::endl <<
               "To see this msg again type \"help\"" << std::endl;
     auto help = [] {
@@ -51,7 +51,7 @@ void cView::startInput() {
                 break;
             } else if (userMessage.compare("help") == 0) {
                 help();
-            } else  if (userMessage.compare("view exists") == 0){
+            } else  if (userMessage.compare("-v") == 0){
                 controller_.viewEntities();
             } else {
                 // send request to inputValidator

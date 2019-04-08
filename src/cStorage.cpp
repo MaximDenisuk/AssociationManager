@@ -54,16 +54,21 @@ commonTypes::eSTATUS cStorage::requestLoadFullData() {
     std::ifstream myfile (constants::kFileName);
     std::string linefromFile = "";
     std::vector<cEntity> readEntities;
-
     if (myfile.is_open()) {
         cEntity entity("", "");
-        while (getline(myfile, linefromFile)) {
-            if (0 == linefromFile.compare(ENTITY_START) &&
-                !entity.getShortName_().empty() &&
-                !entity.getLongName_().empty()) {
+
+        const auto pushIfPossible = [&] (const cEntity &_entity) {
+            if (!_entity.getShortName_().empty() &&
+                !_entity.getLongName_().empty()) {
                 readEntities.push_back(entity);
-                logger_.print(__FUNCTION__, "push entity: ", entity.getLongName_());
+                logger_.print("requestLoadFullData", "push entity: ", entity.getLongName_());
                 entity = cEntity("", "");
+            }
+        };
+
+        while (getline(myfile, linefromFile)) {
+            if (0 == linefromFile.compare(ENTITY_START)) {
+                pushIfPossible(entity);
             } else if (linefromFile.find(SHORT_NAME) != -1) {
                 std::string tmpStr = linefromFile.substr(SHORT_NAME.length(), linefromFile.length());
                 entity.setShortName_(tmpStr);
@@ -91,10 +96,10 @@ commonTypes::eSTATUS cStorage::requestLoadFullData() {
                     logger_.print(__FUNCTION__, "Association line is empty!");
                     break;
                 }
-            } else {
-//                logger_.print(__FUNCTION__, "Unhandled line!!! Smth go wrong");
-//                break;
             }
+        }
+        if (0 == linefromFile.compare("")) {
+            pushIfPossible(entity);
         }
         myfile.close();
     } else {
