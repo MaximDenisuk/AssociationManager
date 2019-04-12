@@ -35,14 +35,16 @@ void cEntityController::createEntity(const std::vector<std::string> &_msgData) {
                 entitiesList_.push_back(entity);
                 storage_.requestSaveFullData(entitiesList_);
             } else {
-                viewer_.entityAlreadyExists(shortName);
+                viewer_.errorEntityAlreadyExists(shortName);
             }
 
         } else {
+            viewer_.errorEntityNotFound("");
             logger_.printError(__FUNCTION__, "Wrong incomming data. Short or long name are empty");
         }
     } else {
-        logger_.printError(__FUNCTION__, "Wrong incomming data. It is empty or wrong size");
+        viewer_.errorEntityNotFound("");
+        logger_.printError(__FUNCTION__, "Wrong incomming data count");
     }
 }
 void cEntityController::makeEnttityAssociation(const std::vector<std::string> &_msgData) {
@@ -66,16 +68,20 @@ void cEntityController::makeEnttityAssociation(const std::vector<std::string> &_
                     storage_.requestSaveFullData(entitiesList_);
                     logger_.print(__FUNCTION__, "Association added");
                 } else {
-                    viewer_.associationAlreadyExists(*isThisAssociationNotExists);
+                    viewer_.errorAssociationAlreadyExists(*isThisAssociationNotExists);
+                    logger_.printError(__FUNCTION__, "Error association already exists");
                 }
             } else {
-                viewer_.entityNotFoundError(_msgData[2]);
+                viewer_.errorEntityNotFound(_msgData[2].c_str());
+                logger_.printError(__FUNCTION__, "Entity not found - ", _msgData[2].c_str());
             }
         } else {
-            viewer_.entityNotFoundError(_msgData[0].c_str());
+            viewer_.errorEntityNotFound(_msgData[0].c_str());
+            logger_.printError(__FUNCTION__, "Entity not found - ", _msgData[0].c_str());
         }
     } else {
-        logger_.printError(__FUNCTION__, "Wrong incomming data. It is empty or wrong size");
+        viewer_.errorEntityNotFound("");
+        logger_.printError(__FUNCTION__, "Wrong incomming data count");
     }
 }
 void cEntityController::viewEntityData(const std::vector<std::string> &_msgData) {
@@ -96,13 +102,16 @@ void cEntityController::viewEntityData(const std::vector<std::string> &_msgData)
                     viewer_.viewEntityInfo(dataToShow);
                 }
             } else {
+                viewer_.errorCorruptedEntityNames();
                 logger_.printError(__FUNCTION__, "One of entity names are empty");
             }
         } else {
-            logger_.print(__FUNCTION__, "Entity with this name not found, create it at first, name: ", _msgData[0].c_str());
+            viewer_.errorEntityNotFound(_msgData[0].c_str());
+            logger_.print(__FUNCTION__, "Entity with this name not found - ", _msgData[0].c_str());
         }
     } else {
-        logger_.printError(__FUNCTION__, "Wrong incomming data. It is empty or wrong size");
+        viewer_.errorEntityNotFound("");
+        logger_.printError(__FUNCTION__, "Wrong incomming data count");
     }
 }
 

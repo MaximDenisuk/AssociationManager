@@ -2,6 +2,7 @@
 // Created by mdenysiuk on 03.04.19.
 //
 
+#include <algorithm>
 #include "cMsgValidator.h"
 #include "cHelperFunctions.h"
 
@@ -64,8 +65,11 @@ std::vector<std::string> cMsgValidator::parseCreateMsg (const std::string &_msg)
     std::vector<std::string> result;
     if (!_msg.empty()) {
         auto push_back = [=](const std::string &_keyWord, std::vector<std::string> &_result) {
-            if (_keyWord.empty()) {
-                logger_.printError(__FUNCTION, "Wrong msg size received, msg is empty");
+            std::string strWithoutSpaces = _keyWord;
+            strWithoutSpaces.erase(std::remove(strWithoutSpaces.begin(), strWithoutSpaces.end(), ' '), strWithoutSpaces.end());
+
+            if (strWithoutSpaces.empty()) {
+                logger_.printError(__FUNCTION, "Msg constains only spaces or is empty");
             } else {
                 _result.push_back(_keyWord);
             }
@@ -84,8 +88,12 @@ std::vector<std::string> cMsgValidator::parseCreateMsg (const std::string &_msg)
         }
     }
 
-    logger_.print(__FUNCTION, "KeyWord 0 : ", result[0]);
-    logger_.print(__FUNCTION, "KeyWord 0 : ", result[1]);
+    if (result.size() == constants::CREATE_ENTITY_MAX_PARAMS_COUNT) {
+        logger_.print(__FUNCTION, "KeyWord 0 : ", result[0]);
+        logger_.print(__FUNCTION, "KeyWord 0 : ", result[1]);
+    } else {
+        logger_.printError(__FUNCTION, "Wrong parameter count");
+    }
     return result;
 }
 
@@ -119,6 +127,10 @@ std::vector<std::string> cMsgValidator::parseViewMsg (const std::string &_msg) {
             logger_.printError(__FUNCTION__, "Separator not found!");
         }
     }
-    logger_.print(__FUNCTION__, "KeyWord: ", result[0]);
+    if (result.size() == 1) {
+        logger_.print(__FUNCTION__, "KeyWord: ", result[0]);
+    } else {
+        logger_.printError(__FUNCTION__, "Wrong parameter count");
+    }
     return result;
 }

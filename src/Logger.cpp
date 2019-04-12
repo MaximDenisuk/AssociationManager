@@ -52,3 +52,9 @@ void Logger::printError(const std::string _functionName, const std::string _msgT
         std::cout << std::endl << error_ << _functionName << separator_ << _msgToPrint << std::endl;
     }
 }
+
+void Logger::printError(const std::string _functionName, const std::string _msgToPrint, const std::string _param1) {
+    if (isLoggerEnabled_) {
+        std::cout << std::endl << error_ << _functionName << separator_ << _msgToPrint << _param1 << std::endl;
+    }
+}

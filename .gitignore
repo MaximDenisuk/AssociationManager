@@ -1,6 +1,3 @@
-/.idea/*
-/.idea
-/cmake-build-debug/*
-/cmake-build-debug
-/qt_creator_build/*
-/qt_creator_build
+qt_creator_build/
+idea/
+cmake-build-debug/

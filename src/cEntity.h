@@ -13,12 +13,12 @@ class cEntity {
 private:
     std::string shortName_,
                 longName_;
-    std::vector<std::pair<std::string, std::string>> associationList;
+    std::vector<std::pair<std::string, std::string> > associationList;
 
 public:
     void setLongName_(const std::string &longName_);
     void setShortName_(const std::string &shortName_);
-    const std::vector<std::pair<std::string, std::string>> &getAssociationList() const;
+    const std::vector<std::pair<std::string, std::string> > &getAssociationList() const;
     const std::string &getLongName_() const;
     const std::string &getShortName_() const;
     void addAssociation(const std::string& _associatedWith, const std::string& _associationName);
@@ -46,7 +46,7 @@ cEntity::setLongName_(const std::string &longName_) {
     cEntity::longName_ = longName_;
 }
 
-inline const std::vector<std::pair<std::string, std::string>> &
+inline const std::vector<std::pair<std::string, std::string> > &
 cEntity::getAssociationList() const {
     return associationList;
 }

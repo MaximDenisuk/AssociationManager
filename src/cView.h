@@ -19,11 +19,12 @@ private:
 public:
     void start();
 
-    void viewEntityInfo(const std::vector<std::pair<std::string, std::string>> &_entityDataToShow);
-    void entityNotFoundError(const std::string &_entityName);
-    void entityAlreadyExists(const std::string &_entityName);
-    void viewEntities(const std::vector<std::pair<std::string, std::string>> &_entityNames);
-    void associationAlreadyExists(const std::pair<std::string, std::string> &_association);
+    void viewEntityInfo(const std::vector<std::pair<std::string, std::string> > &_entityDataToShow);
+    void viewEntities(const std::vector<std::pair<std::string, std::string> > &_entityNames);
+    void errorEntityNotFound(const std::string &_entityName);
+    void errorEntityAlreadyExists(const std::string &_entityName);
+    void errorAssociationAlreadyExists(const std::pair<std::string, std::string> &_association);
+    void errorCorruptedEntityNames();
 
     cView(const bool _isLoggerNeeded);
     ~cView();

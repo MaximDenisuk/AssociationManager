@@ -45,7 +45,6 @@ void cView::startInput() {
     std::string userMessage = "";
     while(true) {
         std::getline(std::cin, userMessage);
-        std::cout << userMessage;
         if (!userMessage.empty()) {
             if (userMessage.compare("q") == 0) {
                 break;
@@ -118,34 +117,38 @@ void cView::viewEntityInfo(const std::vector<std::pair<std::string, std::string>
     }
 }
 
-void cView::entityNotFoundError(const std::string &_entityName) {
-    if ( !_entityName.empty()) {
-        std::cout << "Mentiont entity \"" << _entityName << "\" doesn't exists !" << std::endl;
-    } else {
-        logger_.printError(__FUNCTION__, "Data to show is empty");
-    }
+void cView::errorCorruptedEntityNames() {
+    std::cout << "Entity names are corrupted. Please edit them before entity use!" << std::endl;
 }
 
-void cView::entityAlreadyExists(const std::string &_entityName) {
-    if ( !_entityName.empty()) {
+void cView::errorEntityNotFound(const std::string &_entityName) {
+//    if ( !_entityName.empty()) {
+        std::cout << "Mentiont entity \"" << _entityName << "\" doesn't exists !" << std::endl;
+//    } else {
+//        logger_.printError(__FUNCTION__, "Data to show is empty");
+//    }
+}
+
+void cView::errorEntityAlreadyExists(const std::string &_entityName) {
+//    if ( !_entityName.empty()) {
         std::cout << "Mentiont entity short-name \"" << _entityName << "\" already exists!" << std::endl;
-    } else {
-        logger_.printError(__FUNCTION__, "Data to show is empty");
-    }
+//    } else {
+//        logger_.printError(__FUNCTION__, "Data to show is empty");
+//    }
 }
 
 void cView::viewEntities(const std::vector<std::pair<std::string, std::string>> &_entityNames) {
-    if (!_entityNames.empty()) {
+//    if (!_entityNames.empty()) {
         std::cout << "Exists entities: " << std::endl;
         for (const auto names : _entityNames) {
             std::cout << names.first << " = " << names.second << std::endl;
         }
-    } else {
-        std::cout << "No data to show" << std::endl;
-    }
+//    } else {
+//        std::cout << "No data to show" << std::endl;
+//    }
 }
 
-void cView::associationAlreadyExists(const std::pair<std::string, std::string> &_association) {
+void cView::errorAssociationAlreadyExists(const std::pair<std::string, std::string> &_association) {
     if (!_association.first.empty() && !_association.second.empty()) {
         std::cout << "Association \""
             << _association.first
