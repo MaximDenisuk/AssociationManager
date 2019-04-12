@@ -70,12 +70,12 @@ std::vector<std::string> cMsgValidator::parseCreateMsg (const std::string &_msg)
                 _result.push_back(_keyWord);
             }
         };
-        const uint kFoundPos = _msg.find(constants::kCreateEntity);
+        const unsigned int kFoundPos = _msg.find(constants::kCreateEntity);
         if (-1 != kFoundPos) {
             std::string keyWord = _msg.substr(0, kFoundPos);
             push_back(keyWord, result);
 
-            const uint shiftFromLeft = kFoundPos + constants::kCreateEntity.length();
+            const unsigned int shiftFromLeft = kFoundPos + constants::kCreateEntity.length();
             keyWord = _msg.substr(shiftFromLeft, _msg.length());
 
             push_back(keyWord, result);
@@ -107,7 +107,7 @@ std::vector<std::string> cMsgValidator::parseViewMsg (const std::string &_msg) {
     std::vector<std::string> result;
 
     if (!_msg.empty()) {
-        const uint kFoundPos = _msg.find(constants::kViewInfo);
+        const unsigned int kFoundPos = _msg.find(constants::kViewInfo);
         if (-1 != kFoundPos) {
             std::string keyWord = _msg.substr(0, kFoundPos);
             if (!keyWord.empty()) {

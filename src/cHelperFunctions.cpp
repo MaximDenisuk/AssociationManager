@@ -9,8 +9,8 @@ std::vector<std::string> cHelperFunctions::associationMnagerParser(const std::st
     std::vector<std::string> result;
     std::string keyWord = "",
                 tmpMsg = _msg;
-    uint shiftFromLeft = 0;
-    uint endKeywordPosition = 0;
+    unsigned int shiftFromLeft = 0;
+    unsigned int endKeywordPosition = 0;
 
     while (shiftFromLeft != _msg.length()) {
         endKeywordPosition = tmpMsg.find(constants::kCreateAssociation);
