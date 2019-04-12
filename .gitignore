@@ -1,10 +1,4 @@
 .idea/
-cmake-build-debug/
 .idea
-cmake-build-debug
-.idea/AssociationManager.iml
-.idea/encodings.xml
-.idea/misc.xml
-.idea/modules.xml
-.idea/vcs.xml
-.idea/workspace.xml
+./cmake-build-debug/
+./cmake-build-debug
