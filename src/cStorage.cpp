@@ -41,6 +41,7 @@ commonTypes::eSTATUS cStorage::requestSaveFullData(std::vector<cEntity> _entitie
     } else {
         logger_.print(__FUNCTION__, "Nothing to write. Storage is empty.");
     }
+    generatePlantUMLDiag(_entitiesToSave);
 }
 
 commonTypes::eSTATUS cStorage::requestSaveData(const cEntity &_entitiesToSave) {
@@ -112,4 +113,42 @@ commonTypes::eSTATUS cStorage::requestLoadFullData() {
 void cStorage::responseLoadFullData() {
     logger_.print(__FUNCTION__);
     entityController_.responseLoadFullData();
+}
+
+
+void cStorage::generatePlantUMLDiag(std::vector<cEntity> _entitiesToSave) {
+    logger_.print(__FUNCTION__);
+
+    if (!_entitiesToSave.empty()) {
+        std::ofstream file;
+        file.open (constants::kDiagName);
+        std::vector<std::string> aliases;
+        std::vector<std::string> associations;
+
+        for (const auto entity: _entitiesToSave) {
+            aliases.push_back(entity.getShortName_() + " as " + entity.getLongName_() + "\n");
+            for (const auto association : entity.getAssociationList()) {
+                std::string formedAssociation =
+                   "(" + entity.getShortName_() + ") --> (" + association.second + ")" + ": " + association.first + "\n";
+                associations.push_back(formedAssociation);
+            }
+        }
+
+        file << "@startuml" << "\n\n";
+        for (const auto alias : aliases) {
+            file << alias;
+        }
+
+        file << "\n";
+
+        for (const auto association : associations) {
+            file << association;
+        }
+
+        file <<"\n@enduml";
+        file.close();
+    } else {
+        logger_.print(__FUNCTION__, "Nothing to write. Storage is empty.");
+    }
+
 }

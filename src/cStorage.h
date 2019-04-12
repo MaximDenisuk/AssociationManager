@@ -22,6 +22,7 @@ private:
     // TODO: start msg qeue in separate thread
 
     void responseLoadFullData();
+    void generatePlantUMLDiag(std::vector<cEntity> _entitiesToSave);
 
     Logger &logger_;
     cEntityController &entityController_;
