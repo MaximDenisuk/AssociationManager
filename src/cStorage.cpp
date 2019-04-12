@@ -126,7 +126,7 @@ void cStorage::generatePlantUMLDiag(std::vector<cEntity> _entitiesToSave) {
         std::vector<std::string> associations;
 
         for (const auto entity: _entitiesToSave) {
-            aliases.push_back(entity.getShortName_() + " as " + entity.getLongName_() + "\n");
+            aliases.push_back(entity.getLongName_() + " as " + entity.getShortName_() + "\n");
             for (const auto association : entity.getAssociationList()) {
                 std::string formedAssociation =
                    "(" + entity.getShortName_() + ") --> (" + association.second + ")" + ": " + association.first + "\n";
