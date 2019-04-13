@@ -22,13 +22,12 @@ private:
     // TODO: start msg qeue in separate thread
 
     void responseLoadFullData();
-    void generatePlantUMLDiag(std::vector<cEntity> _entitiesToSave);
 
     Logger &logger_;
     cEntityController &entityController_;
 
     std::vector<cEntity> storedEntities_;
-    // TODO: add set appropriate status during operations
+    // TODO: add status hadling after func calls
     commonTypes::eSTATUS currentStatus_;
 public:
     commonTypes::eSTATUS requestSaveFullData(std::vector<cEntity> _entitiesToSave);
@@ -36,6 +35,8 @@ public:
     commonTypes::eSTATUS requestLoadFullData();
     commonTypes::eSTATUS getCurrentStatus_() const;
     const std::vector<cEntity> &getStoredEntities_() const;
+    commonTypes::eSTATUS generateUseCaseDiagr(std::vector<cEntity> _entitiesToSave);
+    commonTypes::eSTATUS generateObjectDiagr(std::vector<cEntity> _entitiesToSave);
 
     cStorage(Logger _logger, cEntityController &_entityController);
 };

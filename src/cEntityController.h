@@ -30,6 +30,8 @@ public:
     void makeEnttityAssociation(const std::vector<std::string> &_msgData);
     void viewEntityData(const std::vector<std::string> &_msgData);
     void viewEntities();
+    void generateUseCaseDiagr();
+    void generateObjDiagr();
 
     cEntityController(Logger &_logger, cView &_viewer);
 };

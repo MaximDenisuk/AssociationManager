@@ -23,7 +23,6 @@ void cEntityController::responseLoadFullData() {
 void cEntityController::createEntity(const std::vector<std::string> &_msgData) {
     logger_.print(__FUNCTION__);
     if (!_msgData.empty() && constants::CREATE_ENTITY_MAX_PARAMS_COUNT == _msgData.size()){
-        // TODO: release logic of createEntity
         const std::string shortName = _msgData[0],
                           longName = _msgData[1];
         if (!shortName.empty() && !longName.empty()) {
@@ -122,4 +121,14 @@ void cEntityController::viewEntities() {
         entityNames.push_back(std::pair<std::string, std::string>(entity.getShortName_(), entity.getLongName_()));
     }
     viewer_.viewEntities(entityNames);
+}
+
+void cEntityController::generateUseCaseDiagr() {
+    logger_.print(__FUNCTION__);
+    storage_.generateUseCaseDiagr(entitiesList_);
+}
+
+void cEntityController::generateObjDiagr() {
+    logger_.print(__FUNCTION__);
+    storage_.generateObjectDiagr(entitiesList_);
 }

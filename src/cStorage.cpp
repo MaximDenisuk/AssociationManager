@@ -20,6 +20,7 @@ cStorage::cStorage(Logger _logger, cEntityController &_entityController):
 
 commonTypes::eSTATUS cStorage::requestSaveFullData(std::vector<cEntity> _entitiesToSave) {
     logger_.print(__FUNCTION__);
+    currentStatus_ = commonTypes::eSTATUS::IN_PROGRESS;
     if (!_entitiesToSave.empty()) {
         std::ofstream file;
         file.open (constants::kFileName);
@@ -38,20 +39,23 @@ commonTypes::eSTATUS cStorage::requestSaveFullData(std::vector<cEntity> _entitie
             }
         }
         file.close();
+        currentStatus_ = commonTypes::eSTATUS::COMPLETE;
     } else {
         logger_.print(__FUNCTION__, "Nothing to write. Storage is empty.");
+        currentStatus_ =  commonTypes::eSTATUS::ERROR;
     }
-    generatePlantUMLDiag(_entitiesToSave);
+    return currentStatus_;
 }
 
 commonTypes::eSTATUS cStorage::requestSaveData(const cEntity &_entitiesToSave) {
     logger_.print(__FUNCTION__);
     // TODO: release partial save logic with json/xml/yaml file structure
+    return commonTypes::eSTATUS::COMPLETE;
 }
 
 commonTypes::eSTATUS cStorage::requestLoadFullData() {
     logger_.print(__FUNCTION__);
-
+    currentStatus_ =  commonTypes::eSTATUS::IN_PROGRESS;;
     std::ifstream myfile (constants::kFileName);
     std::string linefromFile = "";
     std::vector<cEntity> readEntities;
@@ -103,11 +107,14 @@ commonTypes::eSTATUS cStorage::requestLoadFullData() {
             pushIfPossible(entity);
         }
         myfile.close();
+        currentStatus_ = commonTypes::eSTATUS::COMPLETE;
     } else {
         logger_.print(__FUNCTION__, "File is already opened");
+        currentStatus_ =  commonTypes::eSTATUS::ERROR;
     }
     storedEntities_ = readEntities;
     responseLoadFullData();
+    return currentStatus_;
 }
 
 void cStorage::responseLoadFullData() {
@@ -116,9 +123,8 @@ void cStorage::responseLoadFullData() {
 }
 
 
-void cStorage::generatePlantUMLDiag(std::vector<cEntity> _entitiesToSave) {
+commonTypes::eSTATUS cStorage::generateUseCaseDiagr(std::vector<cEntity> _entitiesToSave) {
     logger_.print(__FUNCTION__);
-
     if (!_entitiesToSave.empty()) {
         std::ofstream file;
         file.open (constants::kDiagName);
@@ -134,7 +140,7 @@ void cStorage::generatePlantUMLDiag(std::vector<cEntity> _entitiesToSave) {
             }
         }
 
-        file << "@startuml" << "\n\n";
+        file << "@startuml\n" << "left to right direction" << "\n\n";
         for (const auto alias : aliases) {
             file << alias;
         }
@@ -150,5 +156,42 @@ void cStorage::generatePlantUMLDiag(std::vector<cEntity> _entitiesToSave) {
     } else {
         logger_.print(__FUNCTION__, "Nothing to write. Storage is empty.");
     }
+    return commonTypes::eSTATUS::COMPLETE;
+}
 
+commonTypes::eSTATUS cStorage::generateObjectDiagr(std::vector<cEntity> _entitiesToSave) {
+    logger_.print(__FUNCTION__);
+
+    if (!_entitiesToSave.empty()) {
+        std::ofstream file;
+        file.open (constants::kDiagName);
+        std::vector<std::string> aliases;
+        std::vector<std::string> associations;
+
+        for (const auto entity: _entitiesToSave) {
+            aliases.push_back("object \"" + entity.getLongName_() + "\" as " + entity.getShortName_() + "\n");
+            for (const auto association : entity.getAssociationList()) {
+                std::string formedAssociation =
+                        entity.getShortName_() + " --|> " + association.second + ": " + association.first + "\n";
+                associations.push_back(formedAssociation);
+            }
+        }
+
+        file << "@startuml\n" << "left to right direction" << "\n\n";
+        for (const auto alias : aliases) {
+            file << alias;
+        }
+
+        file << "\n";
+
+        for (const auto association : associations) {
+            file << association;
+        }
+
+        file <<"\n@enduml";
+        file.close();
+    } else {
+        logger_.print(__FUNCTION__, "Nothing to write. Storage is empty.");
+    }
+    return commonTypes::eSTATUS::COMPLETE;
 }

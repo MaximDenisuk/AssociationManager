@@ -32,6 +32,8 @@ void cView::startInput() {
               "3) print all data related to Entity using command \"?\", like:" << std::endl <<
               "a ?" << std::endl <<
               "4) To see all exists entities type \"-v\"" << std:: endl <<
+              "5) To generate usecase diag type \"-g uc\"" << std:: endl <<
+              "6) To generate object diag type \"-g obj\"" << std:: endl <<
               "For exit type \"q\"" << std::endl <<
               "To see this msg again type \"help\"" << std::endl;
     auto help = [] {
@@ -52,6 +54,10 @@ void cView::startInput() {
                 help();
             } else  if (userMessage.compare("-v") == 0){
                 controller_.viewEntities();
+            } else  if (userMessage.compare("-g uc") == 0){
+                controller_.generateUseCaseDiagr();
+            } else  if (userMessage.compare("-g obj") == 0){
+                controller_.generateObjDiagr();
             } else {
                 // send request to inputValidator
                 common::commonTypes::eMSG_PATTERN msgPattern = msgValidator_.isOneOfMsgPatterns(userMessage);

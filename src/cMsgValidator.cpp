@@ -56,8 +56,6 @@ cMsgValidator::getMessageInfo(const commonTypes::eMSG_PATTERN &_msgType, std::st
 }
 
 
-// a = Alex
-// TODO: add handling of "a =  "
 std::vector<std::string> cMsgValidator::parseCreateMsg (const std::string &_msg) {
     logger_.print(__FUNCTION__);
     const std::string __FUNCTION = __FUNCTION__;

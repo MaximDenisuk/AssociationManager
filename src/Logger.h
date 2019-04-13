@@ -13,8 +13,6 @@
 
 class Logger {
 public:
-    // TODO: make template logger functions
-
     void print(const std::string _msgToPrint);
     void print(const std::string _functionName, const std::string _msgToPrint);
     void print(const std::string _functionName, const std::string _msgToPrint, const std::string _param1);
