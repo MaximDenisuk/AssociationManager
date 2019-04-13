@@ -132,7 +132,7 @@ commonTypes::eSTATUS cStorage::generateUseCaseDiagr(std::vector<cEntity> _entiti
         std::vector<std::string> associations;
 
         for (const auto entity: _entitiesToSave) {
-            aliases.push_back(entity.getShortName_() + " as " + entity.getLongName_() + "\n");
+            aliases.push_back(entity.getLongName_() + " as " + entity.getShortName_() + "\n");
             for (const auto association : entity.getAssociationList()) {
                 std::string formedAssociation =
                    "(" + entity.getShortName_() + ") --> (" + association.second + ")" + ": " + association.first + "\n";
@@ -161,7 +161,7 @@ commonTypes::eSTATUS cStorage::generateUseCaseDiagr(std::vector<cEntity> _entiti
 
 commonTypes::eSTATUS cStorage::generateObjectDiagr(std::vector<cEntity> _entitiesToSave) {
     logger_.print(__FUNCTION__);
-
+    
     if (!_entitiesToSave.empty()) {
         std::ofstream file;
         file.open (constants::kDiagName);
