@@ -8,15 +8,10 @@ cView::cView(const bool _isLoggerNeeded):
         logger_(Logger()),
         msgValidator_(cMsgValidator(logger_)),
         controller_(cEntityController(logger_, *this)) {
-
 }
 
 
 cView::~cView() {
-//    logger_.print(__FUNCTION__);
-//    delete[] (controller_);
-//    delete[] (msgValidator_);
-//    delete[] (logger_);
 }
 
 void cView::startInput() {
@@ -164,3 +159,20 @@ void cView::errorAssociationAlreadyExists(const std::pair<std::string, std::stri
             << std::endl;
     }
 }
+
+void cView::actionComplete() {
+    std::cout << "Complete !" << std::endl;
+}
+
+void cView::errorLoadData() {
+    std::cout << "Storage error. Storage didn't load data!" << std::endl;
+}
+
+void cView::errorSaveData() {
+    std::cout << "Storage error. Storage didn't save data! Is force save needed?" << std::endl;
+}
+
+void cView::errorDiagGenerationFailed() {
+    std::cout << "Diag generation is failed." << std::endl;
+}
+

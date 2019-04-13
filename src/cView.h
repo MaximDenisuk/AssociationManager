@@ -21,10 +21,15 @@ public:
 
     void viewEntityInfo(const std::vector<std::pair<std::string, std::string> > &_entityDataToShow);
     void viewEntities(const std::vector<std::pair<std::string, std::string> > &_entityNames);
+    void actionComplete();
+
     void errorEntityNotFound(const std::string &_entityName);
     void errorEntityAlreadyExists(const std::string &_entityName);
     void errorAssociationAlreadyExists(const std::pair<std::string, std::string> &_association);
     void errorCorruptedEntityNames();
+    void errorLoadData();
+    void errorSaveData();
+    void errorDiagGenerationFailed();
 
     cView(const bool _isLoggerNeeded);
     ~cView();

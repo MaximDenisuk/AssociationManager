@@ -12,7 +12,9 @@ cEntityController::cEntityController(Logger &_logger, cView &_viewer):
     viewer_(_viewer),
     storage_(_logger,*this) {
     logger_.print("cEntityController ctor");
-    storage_.requestLoadFullData();
+    if (commonTypes::eSTATUS::COMPLETE != storage_.requestLoadFullData()) {
+        viewer_.errorLoadData();
+    }
 }
 
 void cEntityController::responseLoadFullData() {
@@ -32,7 +34,9 @@ void cEntityController::createEntity(const std::vector<std::string> &_msgData) {
             if (pFoundEntity == entitiesList_.end()) {
                 cEntity entity(shortName, longName);
                 entitiesList_.push_back(entity);
-                storage_.requestSaveFullData(entitiesList_);
+                if (commonTypes::eSTATUS::COMPLETE != storage_.requestSaveFullData(entitiesList_)) {
+                    viewer_.errorSaveData();
+                }
             } else {
                 viewer_.errorEntityAlreadyExists(shortName);
             }
@@ -64,7 +68,9 @@ void cEntityController::makeEnttityAssociation(const std::vector<std::string> &_
                 });
                 if (isThisAssociationNotExists == pFoundEntity->getAssociationList().end()) {
                     pFoundEntity->addAssociation(_msgData[1], _msgData[2]);
-                    storage_.requestSaveFullData(entitiesList_);
+                    if (commonTypes::eSTATUS::COMPLETE != storage_.requestSaveFullData(entitiesList_)) {
+                        viewer_.errorSaveData();
+                    }
                     logger_.print(__FUNCTION__, "Association added");
                 } else {
                     viewer_.errorAssociationAlreadyExists(*isThisAssociationNotExists);
@@ -125,10 +131,20 @@ void cEntityController::viewEntities() {
 
 void cEntityController::generateUseCaseDiagr() {
     logger_.print(__FUNCTION__);
-    storage_.generateUseCaseDiagr(entitiesList_);
+    commonTypes::eSTATUS genResult = storage_.generateUseCaseDiagr(entitiesList_);
+    if (commonTypes::eSTATUS::COMPLETE != genResult) {
+        viewer_.errorDiagGenerationFailed();
+    } else {
+        viewer_.actionComplete();
+    }
 }
 
 void cEntityController::generateObjDiagr() {
     logger_.print(__FUNCTION__);
-    storage_.generateObjectDiagr(entitiesList_);
+    commonTypes::eSTATUS genResult = storage_.generateObjectDiagr(entitiesList_);
+    if (commonTypes::eSTATUS::COMPLETE != genResult) {
+        viewer_.errorDiagGenerationFailed();
+    } else {
+        viewer_.actionComplete();
+    }
 }
