@@ -41,6 +41,7 @@ void cView::startInput() {
 
     std::string userMessage = "";
     while(true) {
+        std::cout << std::endl << "127.0.0.1: ";
         std::getline(std::cin, userMessage);
         if (!userMessage.empty()) {
             if (userMessage.compare("q") == 0) {
@@ -123,30 +124,30 @@ void cView::errorCorruptedEntityNames() {
 }
 
 void cView::errorEntityNotFound(const std::string &_entityName) {
-//    if ( !_entityName.empty()) {
+    if ( !_entityName.empty()) {
         std::cout << "Mentiont entity \"" << _entityName << "\" doesn't exists !" << std::endl;
-//    } else {
-//        logger_.printError(__FUNCTION__, "Data to show is empty");
-//    }
+    } else {
+        logger_.printError(__FUNCTION__, "Data to show is empty");
+    }
 }
 
 void cView::errorEntityAlreadyExists(const std::string &_entityName) {
-//    if ( !_entityName.empty()) {
+    if ( !_entityName.empty()) {
         std::cout << "Mentiont entity short-name \"" << _entityName << "\" already exists!" << std::endl;
-//    } else {
-//        logger_.printError(__FUNCTION__, "Data to show is empty");
-//    }
+    } else {
+        logger_.printError(__FUNCTION__, "Data to show is empty");
+    }
 }
 
 void cView::viewEntities(const std::vector<std::pair<std::string, std::string>> &_entityNames) {
-//    if (!_entityNames.empty()) {
+    if (!_entityNames.empty()) {
         std::cout << "Exists entities: " << std::endl;
         for (const auto names : _entityNames) {
             std::cout << names.first << " = " << names.second << std::endl;
         }
-//    } else {
-//        std::cout << "No data to show" << std::endl;
-//    }
+    } else {
+        std::cout << "No data to show" << std::endl;
+    }
 }
 
 void cView::errorAssociationAlreadyExists(const std::pair<std::string, std::string> &_association) {
