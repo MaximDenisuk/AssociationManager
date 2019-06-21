@@ -5,7 +5,6 @@
 #ifndef ASSOCIATIONMANAGER_CSTORAGE_H
 #define ASSOCIATIONMANAGER_CSTORAGE_H
 
-
 #include "common/commonTypes.h"
 #include "common/Logger.h"
 #include "cEntity.h"

@@ -7,7 +7,7 @@
 cView::cView(const bool _isLoggerNeeded):
         logger_(Logger()),
         msgValidator_(cMsgValidator(logger_)),
-        controller_(cEntityController(logger_, *this)) {
+        controller_(cEntityController(logger_)) {
 }
 
 
@@ -18,6 +18,7 @@ void cView::startInput() {
     logger_.print(__FUNCTION__);
     // TODO: add Force save after atomic save realisation
     //                  "If you want to make force save type \"forceSave\"" << std::endl <<
+    auto help = [] {
     std::cout << "Hello, this is Association Manager!" << std::endl <<
               "In this programm you are able to:" << std::endl <<
               "1) create Entity using simple command \"=\", like:" << std::endl <<
@@ -31,7 +32,6 @@ void cView::startInput() {
               "6) To generate object diag type \"-g obj\"" << std:: endl <<
               "For exit type \"q\"" << std::endl <<
               "To see this msg again type \"help\"" << std::endl;
-    auto help = [] {
     };
     auto wrongSyntax = [] {
         std::cout << "Wrong syntax!" << std::endl;
@@ -40,6 +40,7 @@ void cView::startInput() {
     help();
 
     std::string userMessage = "";
+    std::vector<std::string> responseData;
     while(true) {
         std::cout << std::endl << "127.0.0.1: ";
         std::getline(std::cin, userMessage);
@@ -48,12 +49,19 @@ void cView::startInput() {
                 break;
             } else if (userMessage.compare("help") == 0) {
                 help();
-            } else  if (userMessage.compare("-v") == 0){
-                controller_.viewEntities();
+            } else  if (userMessage.compare("-v") == 0) {
+                auto result = controller_.viewEntities();
+                if (commonTypes::eAMErrorTypes::NO_ERROR != result.first) {
+                    std::cerr << "Fail to view entities. Smth goes wrong..." << std::endl;
+                } else {
+                    viewEntities(result.second);
+                }
             } else  if (userMessage.compare("-g uc") == 0){
-                controller_.generateUseCaseDiagr();
+                responseData.clear();
+                processControllerResponse(controller_.generateUseCaseDiagr(), responseData);
             } else  if (userMessage.compare("-g obj") == 0){
-                controller_.generateObjDiagr();
+                responseData.clear();
+                processControllerResponse(controller_.generateObjDiagr(), responseData);
             } else {
                 // send request to inputValidator
                 common::commonTypes::eMSG_PATTERN msgPattern = msgValidator_.isOneOfMsgPatterns(userMessage);
@@ -63,21 +71,28 @@ void cView::startInput() {
                         msgUsefullData =
                                 msgValidator_.getMessageInfo(common::commonTypes::eMSG_PATTERN::CREATE_ENTITY,
                                                             userMessage);
-                        controller_.createEntity(msgUsefullData);
+                        responseData.clear();
+                        processControllerResponse(controller_.createEntity(msgUsefullData), responseData);
                     }
                         break;
                     case common::commonTypes::eMSG_PATTERN::MAKE_ASSOCIATION: {
                         msgUsefullData =
                                 msgValidator_.getMessageInfo(common::commonTypes::eMSG_PATTERN::MAKE_ASSOCIATION,
                                                             userMessage);
-                        controller_.makeEnttityAssociation(msgUsefullData);
+                        responseData.clear();
+                        processControllerResponse(controller_.makeEnttityAssociation(msgUsefullData), responseData);
                     }
                         break;
                     case common::commonTypes::eMSG_PATTERN::VIEW_ENTITY_INFO: {
                         msgUsefullData =
                                 msgValidator_.getMessageInfo(common::commonTypes::eMSG_PATTERN::VIEW_ENTITY_INFO,
                                                             userMessage);
-                        controller_.viewEntityData(msgUsefullData);
+                        auto result = controller_.viewEntityData(msgUsefullData);
+                        if (commonTypes::eAMErrorTypes::NO_ERROR != result.first) {
+                            std::cerr << "Fail to view entity data. Smth goes wrong..." << std::endl;
+                        } else {
+                            viewEntities(result.second);
+                        }
                     }
                         break;
                     default: {
@@ -95,8 +110,56 @@ void cView::start() {
     startInput();
 }
 
+void cView::processControllerResponse(const commonTypes::eAMErrorTypes &_error, std::vector<std::string> &_data) {
+    switch(_error) {
+        case commonTypes::eAMErrorTypes::NO_ERROR: {
+            actionComplete();
+        }
+            break;
+        case commonTypes::eAMErrorTypes::ERROR_SAVE_DATA: {
+            errorSaveData();
+        }
+            break;
+        case commonTypes::eAMErrorTypes::ERROR_ENTITY_ALREADY_EXISTS: {
+            std::string entityName = "";
+            if(!_data.empty()) {
+                entityName = _data[0];
+            }
+            errorEntityAlreadyExists(entityName);
+        }
+            break;
+        case commonTypes::eAMErrorTypes::ERROR_ENTITY_NOT_FOUND: {
+            std::string entityName = "";
+            if(!_data.empty()) {
+                entityName = _data[0];
+            }
+            errorEntityNotFound(entityName);
+        }
+            break;
+        case commonTypes::eAMErrorTypes::ERROR_ASSOCIATION_ALREADY_EXISTS: {
+            auto association = std::pair<std::string, std::string>("", "");
+            if(_data.size() == 2) {
+                association = std::pair<std::string, std::string>(_data[0], _data[1]);
+            }
+            errorAssociationAlreadyExists(association);
+        }
+            break;
+        case commonTypes::eAMErrorTypes::ERROR_CORRUPTED_ENTITY_NAMES: {
+            errorCorruptedEntityNames();
+        }
+            break;
+        case commonTypes::eAMErrorTypes::ERROR_DIAG_GENERATION_FAILED: {
+            errorDiagGenerationFailed();
+        }
+            break;
+        default: {
+            std::cerr << "Unknown controller error!" << std::endl;
+        }
+            break;
+    }
+}
+
 void cView::viewEntityInfo(const std::vector<std::pair<std::string, std::string>> &_entityDataToShow) {
-    //    std::cout << "\t:" << association.first << " -> " << association.second << std::endl;
     if (!_entityDataToShow.empty()) {
         std::string entityName;
         if (!_entityDataToShow[0].second.empty()) {
@@ -124,19 +187,11 @@ void cView::errorCorruptedEntityNames() {
 }
 
 void cView::errorEntityNotFound(const std::string &_entityName) {
-    if ( !_entityName.empty()) {
-        std::cout << "Mentiont entity \"" << _entityName << "\" doesn't exists !" << std::endl;
-    } else {
-        logger_.printError(__FUNCTION__, "Data to show is empty");
-    }
+    std::cout << "Mentiont entity " << _entityName << " doesn't exists !" << std::endl;
 }
 
 void cView::errorEntityAlreadyExists(const std::string &_entityName) {
-    if ( !_entityName.empty()) {
-        std::cout << "Mentiont entity short-name \"" << _entityName << "\" already exists!" << std::endl;
-    } else {
-        logger_.printError(__FUNCTION__, "Data to show is empty");
-    }
+    std::cout << "Mentiont entity short-name " << _entityName << " already exists!" << std::endl;
 }
 
 void cView::viewEntities(const std::vector<std::pair<std::string, std::string>> &_entityNames) {
@@ -163,10 +218,6 @@ void cView::errorAssociationAlreadyExists(const std::pair<std::string, std::stri
 
 void cView::actionComplete() {
     std::cout << "Complete !" << std::endl;
-}
-
-void cView::errorLoadData() {
-    std::cout << "Storage error. Storage didn't load data!" << std::endl;
 }
 
 void cView::errorSaveData() {

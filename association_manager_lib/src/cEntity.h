@@ -5,7 +5,6 @@
 #ifndef ASSOCIATIONMANAGER_CENTITY_H
 #define ASSOCIATIONMANAGER_CENTITY_H
 
-
 #include <string>
 #include <vector>
 

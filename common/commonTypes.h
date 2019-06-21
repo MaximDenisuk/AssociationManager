@@ -23,6 +23,17 @@ namespace commonTypes {
         IN_PROGRESS,
     };
 
+    enum class eAMErrorTypes {
+        ERROR_UNKNOWN = -1,
+        NO_ERROR = 0,
+        ERROR_SAVE_DATA,
+        ERROR_ENTITY_ALREADY_EXISTS,
+        ERROR_ENTITY_NOT_FOUND,
+        ERROR_ASSOCIATION_ALREADY_EXISTS,
+        ERROR_CORRUPTED_ENTITY_NAMES,
+        ERROR_DIAG_GENERATION_FAILED,
+    };
+
 
 
 } // namespace constants
