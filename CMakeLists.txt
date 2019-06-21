@@ -9,6 +9,12 @@ set(PATH_TO_ASSOCIATION_MANAGER_LIB "${CMAKE_CURRENT_SOURCE_DIR}/association_man
 message(STATUS "====> ${CMAKE_C_COMPILER}")
 message(STATUS "====> ${CMAKE_CXX_COMPILER}")
 
+include_directories(
+        ${CMAKE_CURRENT_SOURCE_DIR}
+        ${CMAKE_CURRENT_SOURCE_DIR}/common
+        ${PATH_TO_ASSOCIATION_MANAGER_LIB}
+)
+
 file(GLOB_RECURSE SOURCES
         ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/common/*.cpp

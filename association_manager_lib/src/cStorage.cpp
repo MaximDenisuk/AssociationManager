@@ -4,8 +4,8 @@
 
 #include <fstream>
 #include "cStorage.h"
-#include "../../common/cHelperFunctions.h"
-#include "../cEntityController.h"
+#include "common/cHelperFunctions.h"
+#include "cEntityController.h"
 
 const std::string ENTITY_START = "- Entity:";
 const std::string ASSOCIATION_START = "association: ";

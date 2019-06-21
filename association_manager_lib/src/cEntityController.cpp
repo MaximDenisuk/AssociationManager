@@ -3,7 +3,8 @@
 //
 
 #include <algorithm>
-#include "../cEntityController.h"
+#include "cEntityController.h"
+// TODO(mdenyiusk): remove link between viewver and controller
 #include "../../src/cView.h"
 
 

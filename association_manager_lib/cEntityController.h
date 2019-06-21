@@ -8,8 +8,8 @@
 
 #include <string>
 #include <vector>
-#include "../common/Logger.h"
-#include "../common/constants.h"
+#include "common/Logger.h"
+#include "common/constants.h"
 #include "src/cStorage.h"
 #include "src/cEntity.h"
 

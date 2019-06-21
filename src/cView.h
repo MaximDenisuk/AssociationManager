@@ -6,7 +6,7 @@
 #define ASSOCIATIONMANAGER_CVIEW_H
 
 #include "cMsgValidator.h"
-#include "../association_manager_lib/cEntityController.h"
+#include "cEntityController.h"
 
 class cView {
 private:

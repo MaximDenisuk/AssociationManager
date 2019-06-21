@@ -5,6 +5,8 @@ set(target lAssociationManager)
 message("-------------------------- Run ${target} CMAKE --------------------------")
 
 include_directories(
+        ${CMAKE_CURRENT_SOURCE_DIR}
+        ${CMAKE_CURRENT_SOURCE_DIR}/common
 )
 
 file(GLOB_RECURSE SOURCES

@@ -7,9 +7,9 @@
 
 #include <string>
 #include <vector>
-#include "../common/commonTypes.h"
-#include "../common/constants.h"
-#include "../common/Logger.h"
+#include "common/commonTypes.h"
+#include "common/constants.h"
+#include "common/Logger.h"
 
 namespace constants = common::constants;
 namespace commonTypes = common::commonTypes;
