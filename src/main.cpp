@@ -1,5 +1,5 @@
 #include <iostream>
-#include "src/cView.h"
+#include "cView.h"
 
 int main() {
     // TODO: include GTEST lib

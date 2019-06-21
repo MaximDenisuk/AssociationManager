@@ -8,7 +8,7 @@
 
 #include <string>
 #include <vector>
-#include "../common/constants.h"
+#include "constants.h"
 #include "Logger.h"
 
 namespace constants = common::constants;

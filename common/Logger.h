@@ -9,7 +9,7 @@
 #include <string>
 #include <iostream>
 #include <vector>
-#include "../common/constants.h"
+#include "constants.h"
 
 class Logger {
 public:

@@ -4,7 +4,7 @@
 
 #include <algorithm>
 #include "cMsgValidator.h"
-#include "cHelperFunctions.h"
+#include "../common/cHelperFunctions.h"
 
 cMsgValidator::cMsgValidator(Logger &_logger):
     logger_(_logger) {

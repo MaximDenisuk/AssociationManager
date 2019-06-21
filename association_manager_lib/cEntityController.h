@@ -8,10 +8,10 @@
 
 #include <string>
 #include <vector>
-#include "Logger.h"
+#include "../common/Logger.h"
 #include "../common/constants.h"
-#include "cStorage.h"
-#include "cEntity.h"
+#include "src/cStorage.h"
+#include "src/cEntity.h"
 
 class cView;
 

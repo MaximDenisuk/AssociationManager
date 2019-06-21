@@ -3,8 +3,8 @@
 //
 
 #include <algorithm>
-#include "cEntityController.h"
-#include "cView.h"
+#include "../cEntityController.h"
+#include "../../src/cView.h"
 
 
 cEntityController::cEntityController(Logger &_logger, cView &_viewer):
